@@ -1,9 +1,9 @@
 import {useMemo, useState} from "react"
-import TrashIcon from "../icons/TrashIcon";
+import TrashIcon from "../assets/icons/TrashIcon";
 import { Column, Id } from "../types"
 import { useSortable, SortableContext } from '@dnd-kit/sortable';
 import { CSS } from "@dnd-kit/utilities"
-import PlusIcon from "../icons/PlusIcon";
+import PlusIcon from "../assets/icons/PlusIcon";
 import { Task } from "../types";
 import TaskCard from "./TaskCard";
 

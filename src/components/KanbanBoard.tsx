@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react"
-import PlusIcon from "../icons/PlusIcon"
+import PlusIcon from "../assets/icons/PlusIcon"
 import { Column, Id, Task } from "../types"
 import ColumnContainer from "./ColumnContainer"
 import { DndContext, DragOverlay, DragStartEvent, DragEndEvent, DragOverEvent, useSensors, useSensor, PointerSensor } from "@dnd-kit/core"
