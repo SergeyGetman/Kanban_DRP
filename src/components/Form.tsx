@@ -5,7 +5,7 @@ import { TextField, Grid, Button, Box } from '@mui/material';
 import { validationSchema } from '../validate_rools/validate';
 import { FormStyle } from '../Index.style';
 
-import { CustomTextEnum } from '../enam';
+import { CustomTextEnum } from '../types/enam';
 import { useDispatch } from 'react-redux';
 
 import { toast, ToastContainer } from 'react-toastify';

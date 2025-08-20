@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { NotificationValidationEnum } from '../../../../VS_Code_ALL/VS_Code_ALL/FireWallStore/src/enam';
+import { NotificationValidationEnum } from '../types/enam';
 
 export const validationSchema = yup.object().shape({
   title: yup.string().required(NotificationValidationEnum.titleField),

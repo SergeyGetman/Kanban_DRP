@@ -1,17 +1,19 @@
 import { useState } from 'react';
-import TrashIcon from '../assets/icons/TrashIcon';
+
 import { Id, Task } from '../types';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import EditIcon from '../assets/icons/EditBtn';
+import AddIcon from '@mui/icons-material/Add';
+import { Box } from '@mui/material';
 
-interface Props {
+interface ITaskCard {
   task: Task;
   deleteTask: (id: Id) => void;
   updateTask: (id: Id, content: string) => void;
 }
 
-const TaskCard = ({ task, deleteTask, updateTask }: Props) => {
+const TaskCard = ({ task, deleteTask, updateTask }: ITaskCard) => {
   const [mouseIsOver, setMouseIsOver] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({
@@ -26,6 +28,12 @@ const TaskCard = ({ task, deleteTask, updateTask }: Props) => {
 
   const toggleEditMode = () => {
     setEditMode((prev) => !prev);
+  };
+
+  const [shwowModal, setShwowModal] = useState(false);
+
+  const changeVisibleModal = () => {
+    setShwowModal(!shwowModal);
   };
 
   if (isDragging) {
@@ -93,19 +101,24 @@ const TaskCard = ({ task, deleteTask, updateTask }: Props) => {
         {' '}
         {task.content}
       </p>
+
       {mouseIsOver && (
         <>
-          <button
-            onClick={() => {
-              deleteTask(task.id);
-            }}
-            className="stroke-white absolute right-4 top-1/2 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded"
-          >
-            <TrashIcon />
-          </button>
+          {/*<button*/}
+          {/*  onClick={() => {*/}
+          {/*    deleteTask(task.id);*/}
+          {/*  }}*/}
+          {/*  className="stroke-white absolute right-4 top-16 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded"*/}
+          {/*>*/}
+          {/*  <TrashIcon />*/}
+          {/*</button>*/}
 
-          <div className="stroke-white absolute left-4 top-1/2 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded">
-            <EditIcon />
+          <Box style={{ display: 'block', marginLeft: '50px', zIndex: '333' }}>
+            <AddIcon onClick={changeVisibleModal} />
+          </Box>
+
+          <div className="stroke-white cursor-pointer absolute left-4 top-16 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded">
+            <EditIcon alt={'Edit'} />
           </div>
         </>
       )}

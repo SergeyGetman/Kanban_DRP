@@ -1,5 +1,18 @@
 import { ReactNode } from 'react';
-import { CustomStepperEnum } from '../enam';
+import { CustomStepperEnum } from './enam';
+
+export type Id = string | number;
+
+export type Column = {
+  id: Id;
+  title: string;
+};
+
+export type Task = {
+  id: Id;
+  columnId: Id;
+  content: string;
+};
 
 export interface ICheckedFormDataState {
   statusEnter: number;
@@ -10,47 +23,6 @@ export interface IDataTable {
   arr?: never[];
 }
 
-export interface IProduct {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-
-  tags: string[];
-  sku: string;
-  weight: number;
-  dimensions: {
-    width: number;
-    height: number;
-    depth: number;
-  };
-  warrantyInformation: string;
-  shippingInformation: string;
-  availabilityStatus: string;
-  reviews: {
-    rating: number;
-    comment: string;
-    date: string;
-    reviewerName: string;
-    reviewerEmail: string;
-  }[];
-  returnPolicy: string;
-  minimumOrderQuantity: number;
-  meta: {
-    createdAt: string;
-    updatedAt: string;
-    barcode: string;
-    qrCode: string;
-  };
-}
-
 export interface AccountPagesState {
   status: number;
   count: CustomStepperEnum;
@@ -59,10 +31,10 @@ export interface AccountPagesState {
 
 type IVariant = 'contained' | 'text' | 'outlined';
 
-export interface IButtonProps {
+export interface IButtonPr {
   text: string;
   variant: IVariant;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 export interface IMainContain {
   children?: ReactNode;
