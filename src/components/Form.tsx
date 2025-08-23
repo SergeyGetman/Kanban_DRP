@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+
 import { TextField, Grid, Button, Box } from '@mui/material';
 import { validationSchema } from '../validate_rools/validate';
-import { FormStyle } from '../Index.style';
 
 import { CustomTextEnum } from '../types/enam';
-import { useDispatch } from 'react-redux';
 
 import { toast, ToastContainer } from 'react-toastify';
+import { FormStyle } from '../../Index.style';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export const Forms = () => {
-  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
 

@@ -7,10 +7,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import LogoCompany from '../assets/imsges/logo_sec.png';
 import { Box } from '@mui/material';
+import Forms from './Form';
+import UploadCPT from './InputFileUpload';
 
 export default function MediaCard() {
   return (
-    <Box style={{ margin: '185px 400px' }}>
+    <Box style={{ margin: '185px 400px', width: 'max-content' }}>
       <Card sx={{ maxWidth: 460 }}>
         <CardMedia
           sx={{ height: '50px', width: '50px', margin: '0 auto' }}
@@ -28,8 +30,11 @@ export default function MediaCard() {
             specializes in international transportation around the world.
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            specializes in international transportation around the world.
+            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+            continents except Antarctica
           </Typography>
+          <UploadCPT />
+          <Forms />
         </CardContent>
         <CardActions>
           <Button size="small">Share</Button>
