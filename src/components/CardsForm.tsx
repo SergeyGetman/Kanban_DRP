@@ -8,17 +8,12 @@ import Typography from '@mui/material/Typography';
 import LogoCompany from '../assets/imsges/logo_sec.png';
 import { Box } from '@mui/material';
 import Forms from './Form';
-import UploadCPT from './InputFileUpload';
 
 export default function MediaCard() {
   return (
     <Box style={{ margin: '185px 400px', width: 'max-content' }}>
-      <Card sx={{ maxWidth: 460 }}>
-        <CardMedia
-          sx={{ height: '50px', width: '50px', margin: '0 auto' }}
-          image={LogoCompany}
-          title="green iguana"
-        />
+      <Card sx={{ maxWidth: 660 }}>
+        <CardMedia sx={{ margin: '0 auto', height: '100px', width: '100px' }} image={LogoCompany}></CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Lizard
@@ -33,7 +28,7 @@ export default function MediaCard() {
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
             continents except Antarctica
           </Typography>
-          <UploadCPT />
+
           <Forms />
         </CardContent>
         <CardActions>

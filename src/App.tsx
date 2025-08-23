@@ -21,7 +21,6 @@ function App() {
   }, 5000);
 
   const stateVisble = useAppSelector((state) => state.globalState.statusView);
-  console.log('this is STATE_3', stateVisble);
 
   const [show, setShow] = useState(false);
 
@@ -31,8 +30,7 @@ function App() {
         // <div style={{ display: 'block', margin: '44% 44%' }}>
         //   <ExampleProgress />
         // </div>
-
-        <MediaCard />
+        ((<ExampleProgress />), (<MediaCard />))
       ) : (
         <>
           <KanbanBoard />

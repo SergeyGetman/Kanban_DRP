@@ -7,9 +7,10 @@ import { validationSchema } from '../validate_rools/validate';
 import { CustomTextEnum } from '../types/enam';
 
 import { toast, ToastContainer } from 'react-toastify';
-import { FormStyle } from '../../Index.style';
+import { CircularStyle, FormStyle } from '../../Index.style';
 import { yupResolver } from '@hookform/resolvers/yup';
-
+import Uploads from './InputFileUpload';
+import SceletonComponent from '../librariesComponent/Scelet';
 export const Forms = () => {
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
@@ -100,11 +101,15 @@ export const Forms = () => {
               )}
             />
           </Grid>
+          <CircularStyle>
+            <SceletonComponent />
+          </CircularStyle>
         </Grid>
-        <Box sx={{ margin: '300px auto' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button type="submit" variant="contained">
             {CustomTextEnum.Submit}
           </Button>
+          <Uploads />
         </Box>
       </form>
     </FormStyle>

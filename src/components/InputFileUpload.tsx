@@ -2,6 +2,8 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { useFileContext } from '../hooks/useFileContext';
+import { FC } from 'React';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -15,7 +17,14 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-export default function UploadCPT() {
+type IUploads = {
+  status: boolean;
+  message: string;
+};
+
+const Uploads: FC<IUploads> = ({ status, message }) => {
+  const { addFiles } = useFileContext();
+
   return (
     <Button
       component="label"
@@ -25,7 +34,9 @@ export default function UploadCPT() {
       startIcon={<CloudUploadIcon />}
     >
       Upload files
-      <VisuallyHiddenInput type="file" onChange={(event) => console.log(event.target.files)} multiple />
+      <VisuallyHiddenInput type="file" onChange={(event) => addFiles(event.target.files)} multiple />
+      {status && message}
     </Button>
   );
-}
+};
+export default Uploads;

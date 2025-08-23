@@ -10,7 +10,6 @@ type IModalBTSP = {
 };
 
 const ModalBtsp: FC<IModalBTSP> = ({ text, ...props }) => {
-  console.log('this is props', props);
   return (
     <>
       <ModalCustomStyle classes={'#57595b'}>
