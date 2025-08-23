@@ -8,8 +8,6 @@ import ExampleProgress from './components/Progress';
 import MediaCard from './components/CardsForm';
 
 function App() {
-  const mock_text = 'tested_lorem';
-
   const [changeVis, setchangeVis] = useState(true);
 
   const changeVisiblyStatus = () => {

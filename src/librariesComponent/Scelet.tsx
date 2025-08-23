@@ -18,7 +18,12 @@ const ForComponetnMedia: FC<IForComponetnMedia> = ({ stateAfterUpload }) => {
 
   return (
     <div>
-      <CardMedia component="img" alt="green iguana" height="140" width="150px" image={LogoStar} />
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        sx={{ height: '200px', width: '100%', margin: '0 auto', borderRadius: '3px', opacity: '0.5' }}
+        image={LogoStar}
+      />
     </div>
   );
 };
@@ -27,9 +32,9 @@ export default function SceletonComponent() {
   return (
     <>
       <FormStyleAffterUpload></FormStyleAffterUpload>
-      <ForComponetnMedia state={true} /> && (
+      <ForComponetnMedia state={true} />
       <Stack spacing={1}>
-        <Skeleton variant="rectangular" width={40} height={40} />
+        <Skeleton variant="rectangular" width="auto" height={40} />
         <Skeleton variant="rectangular" width="auto" height={60} />
         <Skeleton variant="rounded" width="auto" height={60} />
       </Stack>
