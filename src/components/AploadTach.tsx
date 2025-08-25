@@ -24,7 +24,7 @@ const FileUpload: FC<IFileUpload> = () => {
       startIcon={<CloudUploadIcon />}
     >
       Upload files
-      <VisuallyHiddenInput type="file" onChange={(event) => console.log(event.target.files)} multiple />
+      <VisuallyHiddenInput type="file" onChange={handleFileChange} multiple />
     </Button>
   );
 };

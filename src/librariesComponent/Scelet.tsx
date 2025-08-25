@@ -3,11 +3,11 @@ import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import { useFileContext } from '../hooks/useFileContext';
 import CardMedia from '@mui/material/CardMedia';
+import { FC } from 'react'; // ✅ исправлен импорт
 
-import { FC } from 'React';
-
-import LogoStar from '../assets/imsges/difreight-difreyt.jpg';
+import LogoStar from '../assets/imsges/skeleton.png';
 import { FormStyleAffterUpload } from '../../Index.style';
+import { Box, LinearProgress } from '@mui/material';
 
 type IForComponetnMedia = {
   stateAfterUpload: boolean;
@@ -16,29 +16,47 @@ type IForComponetnMedia = {
 const ForComponetnMedia: FC<IForComponetnMedia> = ({ stateAfterUpload }) => {
   const { files } = useFileContext();
 
+  console.log('files', files);
+
+  const imageUrl = files.length > 0 ? files[0].preview : LogoStar;
+
   return (
     <div>
       <CardMedia
         component="img"
-        alt="green iguana"
-        sx={{ height: '200px', width: '100%', margin: '0 auto', borderRadius: '3px', opacity: '0.5' }}
-        image={LogoStar}
+        alt="Preview or default logo"
+        sx={{
+          height: '200px',
+          width: 'auto',
+          margin: '0 auto',
+          borderRadius: '3px',
+          opacity: stateAfterUpload || files.length > 0 ? 1 : 0.5,
+          transition: 'opacity 0.3s ease-in-out',
+        }}
+        image={imageUrl}
       />
     </div>
   );
 };
 
-export default function SceletonComponent() {
+export default function SkeletonComponent() {
+  const { files } = useFileContext();
+  const isUploaded = files.length > 0;
+
   return (
     <>
-      <FormStyleAffterUpload></FormStyleAffterUpload>
-      <ForComponetnMedia state={true} />
-      <Stack spacing={1}>
-        <Skeleton variant="rectangular" width="auto" height={40} />
-        <Skeleton variant="rectangular" width="auto" height={60} />
-        <Skeleton variant="rounded" width="auto" height={60} />
-      </Stack>
-      )
+      <FormStyleAffterUpload>
+        <ForComponetnMedia stateAfterUpload={isUploaded} />
+      </FormStyleAffterUpload>
+
+      {!isUploaded && (
+        <Stack spacing={1}>
+          <Box sx={{ width: '100%' }}>
+            <LinearProgress />
+          </Box>
+          <Skeleton variant="rounded" width="auto" height={60} />
+        </Stack>
+      )}
     </>
   );
 }

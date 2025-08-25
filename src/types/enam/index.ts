@@ -27,9 +27,9 @@ export enum CustomEnumPath {
 export enum NotificationValidationEnum {
   titleField = 'Title is required',
   titleAuthorField = 'Autor is required',
-  titleYearField = 'Year is required',
+  titlePriorityField = 'Priority is required',
   titleTearInteger = 'Year must be an integer',
-  titleRaiting = 'Rating is required',
+  titleDeadline = 'Rating is required',
   minValue = 'Rating must be at least 0',
   maxValue = 'Rating must be at most 5',
 }

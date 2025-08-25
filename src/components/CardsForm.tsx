@@ -12,28 +12,61 @@ import Forms from './Form';
 export default function MediaCard() {
   return (
     <Box style={{ margin: '185px 400px', width: 'max-content' }}>
-      <Card sx={{ maxWidth: 660 }}>
-        <CardMedia sx={{ margin: '0 auto', height: '100px', width: '100px' }} image={LogoCompany}></CardMedia>
+      <Card
+        sx={{
+          maxWidth: 660,
+          background: 'radial-gradient(circle, rgb(48 7 75 / 26%) 0%, rgba(148, 187, 233, 1) 100%)',
+        }}
+      >
+        <CardMedia
+          sx={{ margin: '20px auto', height: '100px', width: '100px', borderRadius: '50%' }}
+          image={LogoCompany}
+        ></CardMedia>
+        <Box sx={{ display: 'flex', justifyContent: 'space-evenly', marginTop: '-125px' }}>
+          <Box
+            sx={{
+              fontSize: '90px',
+              fontWeight: '700',
+              fontFamily: 'math',
+              boxShadow: '-6px 6px 2px 1px #3a3975',
+            }}
+          >
+            TO
+          </Box>
+
+          <Box
+            sx={{
+              fontWeight: '700',
+              fontSize: '90px',
+              fontFamily: 'math',
+              boxShadow: '6px -5px 2px 1px #232c2cba',
+            }}
+          >
+            DO
+          </Box>
+        </Box>
+
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            · DiFFreight is one of the most dynamically growing logistics companies in Ukraine. Our company
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            specializes in international transportation around the world.
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-            continents except Antarctica
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            textAlign="center"
+            fontWeight="600"
+            fontFamily="monospace"
+          >
+            CREATE NEW TASK
           </Typography>
 
           <Forms />
         </CardContent>
         <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
+          <Button size="small" sx={{ cursor: 'pointer', color: '#111213' }}>
+            Share
+          </Button>
+          <Button size="small" sx={{ color: '#111213' }}>
+            Learn More
+          </Button>
         </CardActions>
       </Card>
     </Box>

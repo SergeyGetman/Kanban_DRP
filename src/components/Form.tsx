@@ -11,6 +11,7 @@ import { CircularStyle, FormStyle } from '../../Index.style';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Uploads from './InputFileUpload';
 import SceletonComponent from '../librariesComponent/Scelet';
+import MockUserComponent from '../librariesComponent/MockUserComponent';
 export const Forms = () => {
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
@@ -25,8 +26,8 @@ export const Forms = () => {
     defaultValues: {
       title: '',
       autor: '',
-      year: '' || null || undefined,
-      rating: '' || null || undefined,
+      priority: '',
+      deadline: '' || null || undefined,
     },
     resolver: yupResolver(validationSchema),
   });
@@ -73,30 +74,31 @@ export const Forms = () => {
           </Grid>
           <Grid item xs={6}>
             <Controller
-              name="year"
+              name="priority"
               control={control}
               render={({ field }) => (
                 <TextField
                   {...field}
-                  label="Year"
+                  label="Priority"
                   type="number"
-                  error={!!errors.year}
-                  helperText={errors.year?.message}
+                  error={!!errors.priority}
+                  helperText={errors.priority?.message}
                 />
               )}
             />
           </Grid>
           <Grid item xs={6}>
             <Controller
-              name="rating"
+              name="Deadline"
               control={control}
               render={({ field }) => (
                 <TextField
                   {...field}
-                  label="Rating"
+                  label="Deadline"
                   type="number"
-                  error={!!errors.rating}
-                  helperText={errors.rating?.message}
+                  error={!!errors.deadline}
+                  helperText={errors.deadline?.message}
+                  component={MockUserComponent}
                 />
               )}
             />
