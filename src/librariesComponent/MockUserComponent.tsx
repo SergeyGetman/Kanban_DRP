@@ -8,7 +8,7 @@ const MockUserComponent = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const [currentUser, setCurrentUser] = useState<string>('Choose Account');
+  const [currentUser, setCurrentUser] = useState<string>('Choose Author');
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     console.log('EVENT', event.currentTarget);
@@ -23,14 +23,30 @@ const MockUserComponent = () => {
   return (
     <div
       style={{
-        border: '3px solid black',
+        boxShadow: 'rgb(0 194 255) 3px 6px 5px',
         margin: '5px 31px',
-        backgroundColor: '#dde3e3',
-        color: '#979c9c !important',
+        color: 'white',
         fontWeight: '700',
       }}
     >
       <Button
+        sx={{
+          color: 'white !important',
+          border: 'none',
+          marginLeft: '30px',
+          borderRadius: '4px',
+          backgroundColor: '#14131320',
+          whiteSpace: 'nowrap',
+          fontSize: '14px',
+
+          '&:hover': {
+            backgroundColor: '#14131320',
+            boxShadow: 'rgb(255 101 0) 3px 6px 5px',
+            color: 'black',
+
+            opacity: 0.6,
+          },
+        }}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"

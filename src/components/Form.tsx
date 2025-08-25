@@ -16,6 +16,10 @@ export const Forms = () => {
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
 
+  const objForHolder = {
+    color: 'black !important!',
+  };
+
   const {
     control,
     handleSubmit,
@@ -25,7 +29,7 @@ export const Forms = () => {
     mode: 'onSubmit',
     defaultValues: {
       title: '',
-      autor: '',
+      description: '',
       priority: '',
       deadline: '' || null || undefined,
     },
@@ -60,14 +64,14 @@ export const Forms = () => {
           </Grid>
           <Grid item xs={4}>
             <Controller
-              name="autor"
+              name="description"
               control={control}
               render={({ field }) => (
                 <TextField
                   {...field}
-                  label="Autor"
-                  error={!!errors.autor}
-                  helperText={errors.autor?.message}
+                  label="Description"
+                  error={!!errors.description}
+                  helperText={errors.description?.message}
                 />
               )}
             />
@@ -75,6 +79,7 @@ export const Forms = () => {
           <Grid item xs={6}>
             <Controller
               name="priority"
+              sx={objForHolder}
               control={control}
               render={({ field }) => (
                 <TextField

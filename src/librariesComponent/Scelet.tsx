@@ -52,9 +52,16 @@ export default function SkeletonComponent() {
       {!isUploaded && (
         <Stack spacing={1}>
           <Box sx={{ width: '100%' }}>
-            <LinearProgress />
+            <LinearProgress
+              color="primary"
+              sx={{
+                '& .MuiLinearProgress-bar': {
+                  animationDuration: '4s',
+                },
+              }}
+            />
           </Box>
-          <Skeleton variant="rounded" width="auto" height={60} />
+          <Skeleton variant="secondary" width="auto" height={20} />
         </Stack>
       )}
     </>

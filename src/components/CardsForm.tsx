@@ -15,7 +15,7 @@ export default function MediaCard() {
       <Card
         sx={{
           maxWidth: 660,
-          background: 'radial-gradient(circle, rgb(48 7 75 / 26%) 0%, rgba(148, 187, 233, 1) 100%)',
+          background: 'radial-gradient(circle, rgb(118 123 149 / 92%) 0%, rgba(8, 22, 38, 1) 100%)',
         }}
       >
         <CardMedia
@@ -28,7 +28,7 @@ export default function MediaCard() {
               fontSize: '90px',
               fontWeight: '700',
               fontFamily: 'math',
-              boxShadow: '-6px 6px 2px 1px #3a3975',
+              boxShadow: '-3px 3px 2px 1px #d5d8e5',
             }}
           >
             TO
@@ -39,7 +39,7 @@ export default function MediaCard() {
               fontWeight: '700',
               fontSize: '90px',
               fontFamily: 'math',
-              boxShadow: '6px -5px 2px 1px #232c2cba',
+              boxShadow: '6px -1px 2px 1px #3f8fd2e6',
             }}
           >
             DO
@@ -61,7 +61,7 @@ export default function MediaCard() {
           <Forms />
         </CardContent>
         <CardActions>
-          <Button size="small" sx={{ cursor: 'pointer', color: '#111213' }}>
+          <Button size="small" sx={{ cursor: 'pointer', color: '#111213', fontSize: '12px' }}>
             Share
           </Button>
           <Button size="small" sx={{ color: '#111213' }}>

@@ -1,5 +1,6 @@
 import { Box, styled, Typography } from '@mui/material';
 import { CustomStepperEnum } from './src/types/enam';
+import { keyframes } from '@emotion/react';
 
 export const HeaderAppStyle = styled(Typography)(({ step }: { step: CustomStepperEnum }) => ({
   margin: '0',
@@ -20,10 +21,26 @@ export const CircularStyle = styled(Box)(() => ({
   borderRadius: '10px',
 }));
 
+// 1. Определяем анимацию
+const slideInFromLeft = keyframes`
+  0% {
+    margin-left: 50px;
+    opacity: 0;
+  }
+  50% {
+    margin-left: 60px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 50px; 
+    opacity: 0.8;
+  }
+`;
+
 export const FormStyle = styled(Box)(() => ({
   margin: '0 auto',
   marginTop: '20px',
-  color: '#fff',
+  color: '#786262',
   width: 'auto',
 
   '& form': {
@@ -33,11 +50,23 @@ export const FormStyle = styled(Box)(() => ({
   '& form input': {
     padding: '10px',
     borderRadius: '4px',
-    border: '3px solid #ccc',
-    backgroundColor: '#979c9c',
-    color: '#1a1919',
+    border: '1px solid #ccc',
+    backgroundColor: 'transparent',
+    color: '#827a7a',
     fontSize: 'auto',
     fontWeight: 700,
+  },
+  '& form input:hover': {
+    backgroundColor: 'rgba(17,14,14,0.51)',
+    cursor: 'pointer',
+    color: '#e7e0e0',
+    fontSize: 'auto',
+    fontWeight: 700,
+  },
+
+  '& form #basic-button': {
+    marginLeft: '10px',
+    animation: `${slideInFromLeft} 3s ease-in-out infinite`,
   },
 
   '& form input::placeholder': {
@@ -46,6 +75,7 @@ export const FormStyle = styled(Box)(() => ({
 
   '& form input:focus': {
     outline: 'none',
+    color: 'white',
     borderColor: '#0c3380',
   },
 }));
