@@ -11,8 +11,8 @@ export const sliceCheckedFormData = createSlice({
   initialState,
 
   reducers: {
-    findExample(state) {
-      console.log('this is action', state);
+    changeVisibly(state) {
+      state.statusView = !state.statusView;
     },
     setStatusEnter(state, action: PayloadAction<number>) {
       state.statusEnter = action.payload;
@@ -21,4 +21,4 @@ export const sliceCheckedFormData = createSlice({
 });
 
 export default sliceCheckedFormData.reducer;
-export const { findExample, setStatusEnter } = sliceCheckedFormData.actions;
+export const { changeVisibly } = sliceCheckedFormData.actions;

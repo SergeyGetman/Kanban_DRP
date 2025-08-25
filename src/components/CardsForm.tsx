@@ -55,7 +55,7 @@ export default function MediaCard() {
             fontWeight="600"
             fontFamily="monospace"
           >
-            CREATE NEW TASK
+            ADD
           </Typography>
 
           <Forms />

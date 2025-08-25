@@ -15,6 +15,9 @@ import {
 import { SortableContext, arrayMove } from '@dnd-kit/sortable';
 import { createPortal } from 'react-dom';
 import TaskCard from './TaskCard';
+import ButtonElement from '../librariesComponent/ButtonElement';
+import { useAppDispatch } from '../hooks/redux';
+import { changeVisibly } from '../store/checkedEnterSlice';
 
 const KanbanBoard = () => {
   const [columns, setColumns] = useState<Column[]>([]);
@@ -139,6 +142,9 @@ const KanbanBoard = () => {
     }
   }
 
+  const dispatch = useAppDispatch();
+  //
+
   return (
     <div
       className="m-auto flex
@@ -182,6 +188,11 @@ const KanbanBoard = () => {
             <PlusIcon />
             Add Column
           </button>
+          <ButtonElement
+            handleClick={() => dispatch(changeVisibly())}
+            text="CREATE NEW TASK"
+            variant="outlined"
+          />
         </div>
         {createPortal(
           <DragOverlay>

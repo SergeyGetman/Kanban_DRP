@@ -1,11 +1,12 @@
-import style from './index.module.css';
 import KanbanBoard from './components/KanbanBoard';
-import ModalBtsp from './librariesComponent/ModalBTSP';
+
 import { useState } from 'react';
-import ButtonElement from './librariesComponent/ButtonElement';
+
 import { useAppSelector } from './hooks/redux';
 import ExampleProgress from './components/Progress';
 import MediaCard from './components/CardsForm';
+import { Box } from '@mui/material';
+import Played from './components/Played';
 
 function App() {
   const [changeVis, setchangeVis] = useState(true);
@@ -20,22 +21,15 @@ function App() {
 
   const stateVisble = useAppSelector((state) => state.globalState.statusView);
 
-  const [show, setShow] = useState(false);
-
   return (
     <>
-      {changeVis ? (
-        // <div style={{ display: 'block', margin: '44% 44%' }}>
-        //   <ExampleProgress />
-        // </div>
-        ((<ExampleProgress />), (<MediaCard />))
-      ) : (
-        <>
-          <KanbanBoard />
-          {/*<ModalBtsp text={'HELLO BRO'} name={mock_text} />*/}
-          <ButtonElement handleClick={() => setShow((prev) => !prev)} text="open" variant="outlined" />
-        </>
-      )}
+      <Box style={{ display: 'block', margin: '44% 44%' }}>
+        <ExampleProgress />
+        <Played played={changeVis} />
+      </Box>
+
+      {stateVisble && <MediaCard />}
+      <KanbanBoard />
     </>
   );
 }
