@@ -6,6 +6,7 @@ import { CSS } from '@dnd-kit/utilities';
 import EditIcon from '../assets/icons/EditBtn';
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/material';
+import TrashIcon from '../assets/icons/TrashIcon';
 
 interface ITaskCard {
   task: Task;
@@ -104,22 +105,18 @@ const TaskCard = ({ task, deleteTask, updateTask }: ITaskCard) => {
 
       {mouseIsOver && (
         <>
-          {/*<button*/}
-          {/*  onClick={() => {*/}
-          {/*    deleteTask(task.id);*/}
-          {/*  }}*/}
-          {/*  className="stroke-white absolute right-4 top-16 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded"*/}
-          {/*>*/}
-          {/*  <TrashIcon />*/}
-          {/*</button>*/}
+          <button
+            onClick={() => {
+              deleteTask(task.id);
+            }}
+            className="stroke-white absolute right-4 top-16 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded"
+          >
+            <TrashIcon />
+          </button>
 
           <Box style={{ display: 'block', marginLeft: '50px', zIndex: '333' }}>
             <AddIcon onClick={changeVisibleModal} />
           </Box>
-
-          <div className="stroke-white cursor-pointer absolute left-4 top-16 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded">
-            <EditIcon alt={'Edit'} />
-          </div>
         </>
       )}
     </div>

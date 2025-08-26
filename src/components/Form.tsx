@@ -50,7 +50,7 @@ export const Forms = () => {
     if (data) {
       reset();
       notify();
-      setShowModal(true);
+      setShowModal(false);
     }
 
     const savedForms = JSON.parse(localStorage.getItem('forms') || '[]');
@@ -141,7 +141,7 @@ export const Forms = () => {
             {CustomTextEnum.Submit}
           </Button>
           <Uploads />
-          <button type="button" onClick={checkForm}>
+          <button type="button" onClick={checkForm} style={{ textTransform: 'uppercase', color: '#b6bab0' }}>
             check valid
           </button>
         </Box>

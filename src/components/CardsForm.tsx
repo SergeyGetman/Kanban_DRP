@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import LogoCompany from '../assets/imsges/logo_sec.png';
 import { Box } from '@mui/material';
 import Forms from './Form';
+import { FormLayoutCustom } from './StyledComponent/ModalWindow.style';
 
 export default function MediaCard() {
   return (
@@ -57,8 +58,9 @@ export default function MediaCard() {
           >
             ADD
           </Typography>
-
-          <Forms />
+          <FormLayoutCustom>
+            <Forms />
+          </FormLayoutCustom>
         </CardContent>
         <CardActions>
           <Button size="small" sx={{ cursor: 'pointer', color: '#111213', fontSize: '12px' }}>

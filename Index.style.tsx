@@ -2,6 +2,10 @@ import { Box, styled, Typography } from '@mui/material';
 import { CustomStepperEnum } from './src/types/enam';
 import { keyframes } from '@emotion/react';
 
+interface FormStyleProps {
+  stateMove?: boolean;
+}
+
 export const HeaderAppStyle = styled(Typography)(({ step }: { step: CustomStepperEnum }) => ({
   margin: '0',
   padding: '0',
@@ -21,7 +25,6 @@ export const CircularStyle = styled(Box)(() => ({
   borderRadius: '10px',
 }));
 
-// 1. Определяем анимацию
 const slideInFromLeft = keyframes`
   0% {
     margin-left: 50px;
@@ -37,8 +40,9 @@ const slideInFromLeft = keyframes`
   }
 `;
 
-export const FormStyle = styled(Box)(() => ({
+export const FormStyle = styled(Box)<FormStyleProps>(({ stateMove }) => ({
   margin: '0 auto',
+  opacity: stateMove ? '0.2' : '0.9',
   marginTop: '20px',
   color: '#786262',
   width: 'auto',

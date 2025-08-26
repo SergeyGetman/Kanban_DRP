@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Box style={{ display: 'block', margin: '44% 44%' }}>
+      <Box style={{ display: 'block', margin: '30px 30px' }}>
         <ExampleProgress />
         <Played played={changeVis} />
       </Box>
