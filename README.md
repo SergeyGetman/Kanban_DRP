@@ -1,12 +1,15 @@
-# Getting Started with Create React App
+# Getting Started with Create React ToDO
+
+# WatchVideo
+https://drive.google.com/file/d/1Rl250cPc7a2qsdBrzZlE90b0p1UFvk7N/view?usp=sharing
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+##  Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
