@@ -7,7 +7,7 @@ function Played(play: boolean) {
     const audio = audioRef.current;
     if (audio) {
       audio.volume = 0.1;
-      audio.play().catch((e) => console.log('Воспроизведение заблокировано', e));
+      audio.play().catch((e) => console.log('stopped', e));
     }
   };
 
@@ -18,7 +18,7 @@ function Played(play: boolean) {
   return (
     <>
       <div>
-        <button onClick={playMusic}>▶️ Включить музыку</button>
+        <button onClick={playMusic}>▶️ Play</button>
 
         <audio ref={audioRef} loop>
           <source src="../public/musik/musofon.mp3" type="audio/mpeg" />

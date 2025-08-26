@@ -12,6 +12,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Uploads from './InputFileUpload';
 import SceletonComponent from '../librariesComponent/Scelet';
 import MockUserComponent from '../librariesComponent/MockUserComponent';
+
+interface IFormData {
+  title: string;
+  description: string;
+  priority: number | string;
+  deadline: string;
+}
+
 export const Forms = () => {
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
@@ -23,6 +31,8 @@ export const Forms = () => {
   const {
     control,
     handleSubmit,
+    getValues,
+    trigger,
     formState: { errors },
     reset,
   } = useForm({
@@ -31,22 +41,36 @@ export const Forms = () => {
       title: '',
       description: '',
       priority: '',
-      deadline: '' || null || undefined,
+      deadline: '',
     },
     resolver: yupResolver(validationSchema),
   });
 
-  const handleFormSubmit = (data: any) => {
+  const handleFormSubmit = (data: IFormData) => {
     if (data) {
       reset();
       notify();
-      setShowModal(false);
+      setShowModal(true);
+    }
+
+    const savedForms = JSON.parse(localStorage.getItem('forms') || '[]');
+    savedForms.push(data);
+    localStorage.setItem('forms', JSON.stringify(savedForms));
+  };
+
+  const checkForm = async () => {
+    const isValid = await trigger();
+    if (isValid) {
+      const values = getValues();
+      console.log('All values:', values);
+    } else {
+      console.log('Form has errors:', errors);
     }
   };
 
   return showModal ? (
     <FormStyle>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
+      <form noValidate onSubmit={handleSubmit(handleFormSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={6}>
             <Controller
@@ -94,7 +118,7 @@ export const Forms = () => {
           </Grid>
           <Grid item xs={6}>
             <Controller
-              name="Deadline"
+              name="deadline"
               control={control}
               render={({ field }) => (
                 <TextField
@@ -117,6 +141,9 @@ export const Forms = () => {
             {CustomTextEnum.Submit}
           </Button>
           <Uploads />
+          <button type="button" onClick={checkForm}>
+            check valid
+          </button>
         </Box>
       </form>
     </FormStyle>

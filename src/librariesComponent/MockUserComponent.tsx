@@ -11,7 +11,6 @@ const MockUserComponent = () => {
   const [currentUser, setCurrentUser] = useState<string>('Choose Author');
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('EVENT', event.currentTarget);
     setAnchorEl(event.currentTarget);
   };
 

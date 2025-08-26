@@ -29,7 +29,7 @@ export enum NotificationValidationEnum {
   titleAuthorFieldDescription = 'Autor is required',
   titlePriorityField = 'Priority is required',
   titleTearInteger = 'Year must be an integer',
-  titleDeadline = 'Rating is required',
+  titleDeadline = 'Deadline is required',
   minValue = 'Rating must be at least 0',
   maxValue = 'Rating must be at most 5',
 }
