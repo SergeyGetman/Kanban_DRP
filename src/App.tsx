@@ -25,11 +25,9 @@ function App() {
     <>
       <Box style={{ display: 'block', margin: '30px 30px' }}>
         <ExampleProgress />
-        <Played played={changeVis} />
       </Box>
 
-      {stateVisble && <MediaCard />}
-      <KanbanBoard />
+      {changeVis && <MediaCard />}
     </>
   );
 }

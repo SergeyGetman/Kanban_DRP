@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import LogoCompany from '../assets/imsges/logo_sec.png';
+import LogoCompany from '../../public/favicon.jpg';
 import { Box } from '@mui/material';
 import Forms from './Form';
 import { FormLayoutCustom } from './StyledComponent/ModalWindow.style';

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { ModalCustomStyle, ModalCustomStyleBTNS } from './ModalST.style';
 import { ButtonElement } from '../librariesComponent/ButtonElement';
-import LogoCompany from '../assets/imsges/DF.png';
+import LogoCompany from '../../public/favicon.jpg';
 import { Box } from '@mui/material';
 
 type IModalBTSP = {

@@ -19,7 +19,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": false,
-    "allowSyntheticDefaultImports": false
+    "allowSyntheticDefaultImports": true
   },
   "baseUrl": ".",
   "paths": {
