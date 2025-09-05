@@ -16,8 +16,6 @@ type IForComponetnMedia = {
 const ForComponetnMedia: FC<IForComponetnMedia> = ({ stateAfterUpload }) => {
   const { files } = useFileContext();
 
-  console.log('files', files);
-
   const imageUrl = files.length > 0 ? files[0].preview : LogoStar;
 
   return (
