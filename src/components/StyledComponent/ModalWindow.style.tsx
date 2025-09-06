@@ -65,9 +65,9 @@ export const HandlerScroll = styled(Box, {
 export const FormLayoutCustom = styled(Box)((stateMove: boolean) => ({
   margin: '20px',
   padding: '10px',
-  animation: stateMove ? `${slideInFromL} 5s ease-in-out  ` : 'none',
+  // animation: stateMove ? `${slideInFromL} 5s ease-in-out  ` : 'none',
   '&:first-of-type': {
     position: 'absolute',
-    top: '0px',
+    top: '50px',
   },
 }));

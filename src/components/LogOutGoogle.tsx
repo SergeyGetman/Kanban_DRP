@@ -14,19 +14,17 @@ const LogoutButton = () => {
     <button
       onClick={handleLogout}
       style={{
-        backgroundColor: 'rgb(101 20 12)',
+        backgroundColor: 'rgb(205 36 19 / 68%);',
+        margin: '10px 10px',
         color: 'white',
         border: 'none',
-        padding: '10px 16px',
-        borderRadius: '4px',
+        padding: '20px 10px',
+        borderRadius: '50%',
         cursor: 'pointer',
         fontSize: '14px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
       }}
     >
-      🚪 LOGOUT
+      LOGOUT
     </button>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 import { TextField, Grid, Button, Box } from '@mui/material';
@@ -12,12 +12,21 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Uploads from './InputFileUpload';
 import SceletonComponent from '../librariesComponent/Scelet';
 import MockUserComponent from '../librariesComponent/MockUserComponent';
+import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
+import Typography from '@mui/material/Typography';
+import LogoutButton from './LogOutGoogle';
 
 interface IFormData {
   title: string;
   description: string;
   priority: number | string;
   deadline: string;
+}
+interface User {
+  name: string;
+  email: string;
+  picture: string;
+  id: string;
 }
 
 export const Forms = () => {
@@ -68,8 +77,41 @@ export const Forms = () => {
     }
   };
 
+  const [user, setUser] = useState<User | null>(null);
+
+  console.log('this is user', user);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    } else {
+      window.location.href = '/';
+    }
+  }, []);
+
+  if (!user) {
+    return <div>Загрузка...</div>;
+  }
+
   return showModal ? (
     <FormStyle>
+      <CardInfoUserStyle>
+        <Typography sx={{ color: 'white' }}>Welcome, {user.name}! 👋</Typography>
+        <img
+          src={user.picture}
+          alt="avatar"
+          style={{
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+            margin: '0 auto',
+          }}
+        />
+        <p style={{ color: 'white', marginTop: '10px' }}>
+          <strong>Email:</strong> {user.email}
+        </p>
+      </CardInfoUserStyle>
       <form noValidate onSubmit={handleSubmit(handleFormSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={6}>

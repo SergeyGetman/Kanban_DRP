@@ -17,7 +17,7 @@ export const HeaderAppStyle = styled(Typography)(({ step }: { step: CustomSteppe
 export const CircularStyle = styled(Box)(() => ({
   color: '#b5a13c',
   minHeight: '250px',
-  width: '80%',
+  width: '50%',
   margin: '14px 14px',
   marginTop: '1rem%',
   backgroundColor: 'rgba(0,0,0,0.1)',
@@ -41,11 +41,15 @@ const slideInFromLeft = keyframes`
 `;
 
 export const FormStyle = styled(Box)<FormStyleProps>(({ stateMove }) => ({
-  margin: '0 auto',
+  margin: '20px auto',
+  padding: '30px',
   opacity: stateMove ? '0.2' : '0.9',
   marginTop: '20px',
   color: '#786262',
   width: 'auto',
+  minHeight: '715px',
+  backgroundColor: '#203471',
+  borderRadius: '30px',
 
   '& form': {
     marginLeft: '50px',
@@ -55,7 +59,7 @@ export const FormStyle = styled(Box)<FormStyleProps>(({ stateMove }) => ({
     padding: '10px',
     borderRadius: '4px',
     border: '1px solid #ccc',
-    backgroundColor: 'transparent',
+    backgroundColor: '#ffffff',
     color: '#827a7a',
     fontSize: 'auto',
     fontWeight: 700,
@@ -70,7 +74,7 @@ export const FormStyle = styled(Box)<FormStyleProps>(({ stateMove }) => ({
 
   '& form #basic-button': {
     marginLeft: '10px',
-    animation: `${slideInFromLeft} 3s ease-in-out infinite`,
+    // animation: `${slideInFromLeft} 3s ease-in-out infinite`,
   },
 
   '& form input::placeholder': {

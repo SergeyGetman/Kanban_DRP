@@ -10,67 +10,51 @@ import { Box } from '@mui/material';
 import Forms from './Form';
 import { FormLayoutCustom } from './StyledComponent/ModalWindow.style';
 import MediaCardInfoUser from './MediaCardInfo';
+import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
+import LogoutButton from './LogOutGoogle';
+import { useEffect, useState } from 'react';
 
 export default function MediaCard() {
   return (
-    <Box style={{ margin: '185px 400px', width: 'max-content' }}>
+    <Box
+      style={{
+        margin: '10px 20px',
+        width: 'auto',
+        backgroundColor: '#ffffff00',
+        padding: '50px',
+        position: 'relative',
+      }}
+    >
+      <CardMedia
+        sx={{
+          margin: '0 auto',
+          height: '100px',
+          width: '100px',
+          borderRadius: '50%',
+          marginLeft: 'auto',
+          right: '40px',
+          top: '0px',
+          position: 'absolute',
+          opacity: '0.6',
+        }}
+        image={LogoCompany}
+      >
+        <div style={{ marginTop: '0 auto' }}>
+          <LogoutButton />
+        </div>
+      </CardMedia>
+
       <Card
         sx={{
           maxWidth: 660,
           background: 'radial-gradient(circle, rgb(118 123 149 / 92%) 0%, rgba(8, 22, 38, 1) 100%)',
         }}
       >
-        <CardMedia
-          sx={{ margin: '20px auto', height: '100px', width: '100px', borderRadius: '50%' }}
-          image={LogoCompany}
-        ></CardMedia>
-        <Box sx={{ display: 'flex', justifyContent: 'space-evenly', marginTop: '-125px' }}>
-          <Box
-            sx={{
-              fontSize: '90px',
-              fontWeight: '700',
-              fontFamily: 'math',
-              boxShadow: '-3px 3px 2px 1px #d5d8e5',
-            }}
-          >
-            TO
-          </Box>
-
-          <Box
-            sx={{
-              fontWeight: '700',
-              fontSize: '90px',
-              fontFamily: 'math',
-              boxShadow: '6px -1px 2px 1px #3f8fd2e6',
-            }}
-          >
-            DO
-          </Box>
-        </Box>
-
         <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            textAlign="center"
-            fontWeight="600"
-            fontFamily="monospace"
-          >
-            ADD
-          </Typography>
           <FormLayoutCustom>
             <Forms />
           </FormLayoutCustom>
         </CardContent>
-        <CardActions>
-          <Button size="small" sx={{ cursor: 'pointer', color: '#111213', fontSize: '12px' }}>
-            Share
-          </Button>
-          <Button size="small" sx={{ color: '#111213' }}>
-            Learn More
-          </Button>
-        </CardActions>
       </Card>
     </Box>
   );
