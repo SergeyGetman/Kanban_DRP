@@ -2,6 +2,8 @@ import { Button } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { FC } from 'React';
 import VisuallyHiddenInput from './InputFileUpload';
+import LogoutButton from './LogOutGoogle';
+import React from 'react';
 
 type IFileUpload = {
   image: never;
@@ -25,6 +27,7 @@ const FileUpload: FC<IFileUpload> = () => {
     >
       Upload files
       <VisuallyHiddenInput type="file" onChange={handleFileChange} multiple />
+      <LogoutButton />
     </Button>
   );
 };

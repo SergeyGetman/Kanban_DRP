@@ -9,6 +9,7 @@ import LogoCompany from '../../public/favicon.jpg';
 import { Box } from '@mui/material';
 import Forms from './Form';
 import { FormLayoutCustom } from './StyledComponent/ModalWindow.style';
+import MediaCardInfoUser from './MediaCardInfo';
 
 export default function MediaCard() {
   return (

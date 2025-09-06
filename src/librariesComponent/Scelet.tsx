@@ -24,7 +24,6 @@ const ForComponetnMedia: FC<IForComponetnMedia> = ({ stateAfterUpload }) => {
         component="img"
         alt="Preview or default logo"
         sx={{
-          height: '200px',
           width: 'auto',
           margin: '0 auto',
           borderRadius: '3px',
