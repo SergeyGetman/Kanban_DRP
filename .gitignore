@@ -11,7 +11,7 @@
 /build
 /.idea
 ./public
-.env
+
 # misc
 .DS_Store
 .env.local
