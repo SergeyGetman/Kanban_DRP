@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 import { TextField, Grid, Button, Box } from '@mui/material';
@@ -15,6 +15,7 @@ import MockUserComponent from '../librariesComponent/MockUserComponent';
 import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
 import Typography from '@mui/material/Typography';
 import LogoutButton from './LogOutGoogle';
+import FormregisterComponent from './FormRegisterComponent';
 
 interface IFormData {
   title: string;
@@ -29,7 +30,11 @@ interface User {
   id: string;
 }
 
-export const Forms = () => {
+interface IForm {
+  typeOfForm: true;
+}
+
+export const Forms: FC<IForm> = () => {
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
 
@@ -79,6 +84,8 @@ export const Forms = () => {
 
   const [user, setUser] = useState<User | null>(null);
 
+  const [registerUser, setRegisterUser] = useState(false);
+
   console.log('this is user', user);
 
   useEffect(() => {
@@ -94,7 +101,7 @@ export const Forms = () => {
     return <div>Загрузка...</div>;
   }
 
-  return showModal ? (
+  return registerUser ? (
     <FormStyle>
       <CardInfoUserStyle>
         <Typography sx={{ color: 'white' }}>Welcome, {user.name}! 👋</Typography>
@@ -190,7 +197,7 @@ export const Forms = () => {
       </form>
     </FormStyle>
   ) : (
-    <ToastContainer />
+    <FormregisterComponent />
   );
 };
 
