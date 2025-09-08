@@ -47,7 +47,8 @@ export default function MediaCard() {
       <Card
         sx={{
           maxWidth: 660,
-          background: 'radial-gradient(circle, rgb(118 123 149 / 92%) 0%, rgba(8, 22, 38, 1) 100%)',
+          background:
+            'radial-gradient(circle, rgb(118 123 149 / 92%) 0%, rgba(8, 22, 38, 1) 100%)',
         }}
       >
         <CardContent>

@@ -104,7 +104,9 @@ export const Forms: FC<IForm> = () => {
   return registerUser ? (
     <FormStyle>
       <CardInfoUserStyle>
-        <Typography sx={{ color: 'white' }}>Welcome, {user.name}! 👋</Typography>
+        <Typography sx={{ color: 'white' }}>
+          Welcome, {user.name}! 👋
+        </Typography>
         <img
           src={user.picture}
           alt="avatar"
@@ -190,7 +192,11 @@ export const Forms: FC<IForm> = () => {
             {CustomTextEnum.Submit}
           </Button>
           <Uploads />
-          <button type="button" onClick={checkForm} style={{ textTransform: 'uppercase', color: '#b6bab0' }}>
+          <button
+            type="button"
+            onClick={checkForm}
+            style={{ textTransform: 'uppercase', color: '#b6bab0' }}
+          >
             check valid
           </button>
         </Box>

@@ -18,26 +18,30 @@ interface FileContextType {
   clearFiles: () => void;
 }
 
-export const FileContext = createContext<FileContextType | undefined>(undefined);
+export const FileContext = createContext<FileContextType | undefined>(
+  undefined
+);
 
-export const FileProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const FileProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [isUploaded, setIsUploaded] = useState<boolean>(false);
 
   const addFiles = (newFiles: FileList | null) => {
     if (!newFiles || files.length > 0) return;
 
-    const fileArray = Array.from(newFiles).map((file) => ({
+    const fileArray = Array.from(newFiles).map(file => ({
       file,
       preview: URL.createObjectURL(file),
     }));
 
-    setFiles((prev) => [...prev, ...fileArray]);
+    setFiles(prev => [...prev, ...fileArray]);
     setIsUploaded(true);
   };
 
   const removeFile = (index: number) => {
-    setFiles((prev) => {
+    setFiles(prev => {
       const newFiles = prev.filter((_, i) => i !== index);
       prev[index] && URL.revokeObjectURL(prev[index].preview);
       return newFiles;
@@ -49,7 +53,7 @@ export const FileProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const clearFiles = () => {
-    files.forEach((f) => URL.revokeObjectURL(f.preview));
+    files.forEach(f => URL.revokeObjectURL(f.preview));
     setFiles([]);
     setIsUploaded(false);
   };

@@ -15,7 +15,10 @@ const ModalBtsp: FC<IModalBTSP> = ({ text, ...props }) => {
       <ModalCustomStyle classes={'#57595b'}>
         <div className="modal show">
           <Box>
-            <img src={LogoCompany} style={{ margin: '10px auto', display: 'block' }} />
+            <img
+              src={LogoCompany}
+              style={{ margin: '10px auto', display: 'block' }}
+            />
           </Box>
           <Modal.Dialog>
             <Modal.Header closeButton>
@@ -27,7 +30,11 @@ const ModalBtsp: FC<IModalBTSP> = ({ text, ...props }) => {
             </Modal.Body>
             <ModalCustomStyleBTNS>
               <ButtonElement variant="contained" text={'close'} />
-              <ButtonElement variant="contained" text={'save changes'} style={{ backgroundColor: 'red' }} />
+              <ButtonElement
+                variant="contained"
+                text={'save changes'}
+                style={{ backgroundColor: 'red' }}
+              />
             </ModalCustomStyleBTNS>
 
             <Modal.Footer>another props</Modal.Footer>

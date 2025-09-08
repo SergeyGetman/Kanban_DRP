@@ -34,7 +34,11 @@ const Uploads: FC<IUploads> = ({ status, message }) => {
       startIcon={<CloudUploadIcon />}
     >
       Upload files
-      <VisuallyHiddenInput type="file" onChange={(event) => addFiles(event.target.files)} multiple />
+      <VisuallyHiddenInput
+        type="file"
+        onChange={event => addFiles(event.target.files)}
+        multiple
+      />
       {status && message}
     </Button>
   );

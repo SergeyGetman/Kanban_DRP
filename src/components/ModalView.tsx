@@ -1,6 +1,9 @@
 import React from 'react';
 import { Modal } from '@mui/material';
-import { WindowForButtonStyle, WindowModalStyle } from './StyledComponent/ModalWindow.style';
+import {
+  WindowForButtonStyle,
+  WindowModalStyle,
+} from './StyledComponent/ModalWindow.style';
 import { useNavigate } from 'react-router-dom';
 
 import { CustomButtonTextEnum, CustomTextEnum } from '../types/enam/index';
@@ -26,7 +29,11 @@ export const ModalWindow = () => {
     <>
       <HeaderAppStyle step={stepper}>
         <WindowForButtonStyle>
-          <ButtonElement text={CustomTextEnum.openModal} handleClick={handleOpen} variant="contained" />
+          <ButtonElement
+            text={CustomTextEnum.openModal}
+            handleClick={handleOpen}
+            variant="contained"
+          />
           <ButtonElement
             text={CustomButtonTextEnum.titlePrev}
             handleClick={handleChangeStepMinus}
