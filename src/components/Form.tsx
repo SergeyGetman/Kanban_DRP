@@ -15,7 +15,7 @@ import MockUserComponent from '../librariesComponent/MockUserComponent';
 import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
 import Typography from '@mui/material/Typography';
 import LogoutButton from './LogOutGoogle';
-import FormregisterComponent from './FormRegisterComponent';
+import FormregisterComponent from './entered/FormRegisterComponent';
 
 interface IFormData {
   title: string;

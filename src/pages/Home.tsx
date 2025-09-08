@@ -2,10 +2,17 @@ import { useState } from 'react';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
+import useAuth from '@/hooks/useAuth';
 
 const Home = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  const { token, id, isAuth } = useAuth();
+
+  const localENV = import.meta.env.VITE_API_KEY_FIREBASE;
+
+  console.log('this is localHome', localENV);
 
   const decodeJwt = (token: string) => {
     try {

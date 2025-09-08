@@ -26461,16 +26461,14 @@ class Xx extends cn {
       }));
   }
   required(t) {
-    return super
-      .required(t)
-      .withMutation(n =>
-        n.test({
-          message: t || An.required,
-          name: 'required',
-          skipAbsent: !0,
-          test: r => !!r.length,
-        })
-      );
+    return super.required(t).withMutation(n =>
+      n.test({
+        message: t || An.required,
+        name: 'required',
+        skipAbsent: !0,
+        test: r => !!r.length,
+      })
+    );
   }
   notRequired() {
     return super

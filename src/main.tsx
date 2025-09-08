@@ -8,6 +8,7 @@ import { FileProvider } from './store/ContextSaved';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { MOCK_DATA } from './mock/data';
+import './firebase';
 
 const { DATA_KEY_VAL } = MOCK_DATA;
 
