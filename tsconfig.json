@@ -17,7 +17,7 @@
     "noFallthroughCasesInSwitch": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
