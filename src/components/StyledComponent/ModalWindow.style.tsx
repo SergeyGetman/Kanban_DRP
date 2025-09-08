@@ -24,7 +24,8 @@ export const WindowModalStyle = styled(Typography)(() => ({
 
   height: '50vh',
   width: '100%',
-  backgroundImage: 'url(https://i.pinimg.com/originals/24/ae/3a/24ae3a446a327998d404729123ea4be0.jpg)',
+  backgroundImage:
+    'url(https://i.pinimg.com/originals/24/ae/3a/24ae3a446a327998d404729123ea4be0.jpg)',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
@@ -51,7 +52,7 @@ interface HandlerScrollProps {
 }
 
 export const HandlerScroll = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'stateMove',
+  shouldForwardProp: prop => prop !== 'stateMove',
 })<HandlerScrollProps>(({ stateMove }) => ({
   position: 'absolute',
   top: stateMove ? '35%' : '37%',

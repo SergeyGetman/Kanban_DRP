@@ -16,11 +16,12 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": false,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  },
-  "baseUrl": ".",
-  "paths": {
-    "@/*": ["src/*"]
+    "esModuleInterop": true,
+    
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"]
 }

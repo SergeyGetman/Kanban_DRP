@@ -14,7 +14,7 @@ const MockUserComponent = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (ev) => {
+  const handleClose = ev => {
     setAnchorEl(null);
     setCurrentUser(ev?.target.textContent);
   };
@@ -66,10 +66,18 @@ const MockUserComponent = () => {
           },
         }}
       >
-        <MenuItem onClick={(prevState) => handleClose(prevState)}>Max Plitty</MenuItem>
-        <MenuItem onClick={(prevState) => handleClose(prevState)}>Jack Tile</MenuItem>
-        <MenuItem onClick={(prevState) => handleClose(prevState)}>Lina Guess</MenuItem>
-        <MenuItem onClick={(prevState) => handleClose(prevState)}>Project Manager</MenuItem>
+        <MenuItem onClick={prevState => handleClose(prevState)}>
+          Max Plitty
+        </MenuItem>
+        <MenuItem onClick={prevState => handleClose(prevState)}>
+          Jack Tile
+        </MenuItem>
+        <MenuItem onClick={prevState => handleClose(prevState)}>
+          Lina Guess
+        </MenuItem>
+        <MenuItem onClick={prevState => handleClose(prevState)}>
+          Project Manager
+        </MenuItem>
       </Menu>
     </div>
   );

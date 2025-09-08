@@ -4,7 +4,9 @@ import { NotificationValidationEnum } from '../types/enam';
 export const validationSchema = yup.object().shape({
   title: yup.string().required(NotificationValidationEnum.titleField),
 
-  description: yup.string().required(NotificationValidationEnum.titleAuthorFieldDescription),
+  description: yup
+    .string()
+    .required(NotificationValidationEnum.titleAuthorFieldDescription),
 
   priority: yup
     .number()

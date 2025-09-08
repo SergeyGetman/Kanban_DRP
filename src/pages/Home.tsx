@@ -31,7 +31,10 @@ const Home = () => {
         console.log('Данные пользователя:', decoded);
         const { name, email, picture, sub } = decoded;
 
-        localStorage.setItem('user', JSON.stringify({ name, email, picture, id: sub }));
+        localStorage.setItem(
+          'user',
+          JSON.stringify({ name, email, picture, id: sub })
+        );
       } else {
         setError('Не удалось расшифровать данные пользователя.');
         return;

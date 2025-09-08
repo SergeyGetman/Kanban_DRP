@@ -15,8 +15,9 @@ export type Task = {
 };
 
 export interface ICheckedFormDataState {
-  statusEnter: number;
-  statusView: boolean;
+  email: null;
+  token: null;
+  id: null;
 }
 
 export interface IDataTable {
