@@ -2,7 +2,7 @@
 
 ![Скриншот](./public/screenshots/screenshot_1.jpg)
 
-> **Демо проекта:** [Посмотреть запись работы приложения (Google Drive)](https://drive.google.com/file/d/1Rl250cPc7a2qsdBrzZlE90b0p1UFvk7N/view?usp=sharing)  
+
 > **Онлайн-версия:** [https://sergeygetman.github.io/Kanban_DRP/](https://sergeygetman.github.io/Kanban_DRP/)
 >
 > A modern single-page application (SPA) built with cutting-edge frontend technologies and best practices. This project demonstrates a deep understanding of application architecture, state management, type safety, and automated build processes with high code quality standards.
