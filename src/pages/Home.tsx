@@ -10,6 +10,10 @@ const Home = () => {
 
   const { token, id, isAuth } = useAuth();
 
+  const localENV = import.meta.env.VITE_API_KEY_FIREBASE;
+
+  console.log('this is localHome', localENV);
+
   const decodeJwt = (token: string) => {
     try {
       const payload = token.split('.')[1];
