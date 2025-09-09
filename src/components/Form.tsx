@@ -38,6 +38,8 @@ export const Forms: FC<IForm> = () => {
   const [showModal, setShowModal] = useState(true);
   const notify = () => toast(CustomTextEnum.textMessage);
 
+  const [stopEvent, setstopEvent] = useState(true);
+
   const objForHolder = {
     color: 'black !important!',
   };
@@ -84,7 +86,7 @@ export const Forms: FC<IForm> = () => {
 
   const [user, setUser] = useState<User | null>(null);
 
-  const [registerUser, setRegisterUser] = useState(false);
+  const [registerUser, setRegisterUser] = useState(true);
 
   console.log('this is user', user);
 
@@ -100,6 +102,10 @@ export const Forms: FC<IForm> = () => {
   if (!user) {
     return <div>Загрузка...</div>;
   }
+
+  const GetUserInfoRequest = () => {
+    return <Box>page is loaded</Box>;
+  };
 
   return registerUser ? (
     <FormStyle>

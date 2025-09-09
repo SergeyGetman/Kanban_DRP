@@ -11,13 +11,14 @@ import { MOCK_DATA } from './mock/data';
 import './firebase';
 
 const { DATA_KEY_VAL } = MOCK_DATA;
+const { API_KEY } = DATA_KEY_VAL;
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <FileProvider>
         <BrowserRouter basename="/Kanban_DRP">
-          <GoogleOAuthProvider clientId={DATA_KEY_VAL.API_KEY}>
+          <GoogleOAuthProvider clientId={API_KEY}>
             <App />
           </GoogleOAuthProvider>
         </BrowserRouter>

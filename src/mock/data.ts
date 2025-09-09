@@ -142,8 +142,7 @@ const dataInformation = [
 ];
 
 const DATA_KEY = {
-  API_KEY:
-    '185299531840-el5djg5reh3qt1tqu236bsd4qv77t637.apps.googleusercontent.com',
+  API_KEY: import.meta.env.VITE_API_KEY_GOOGLE,
 };
 
 export const MOCK_DATA = {
