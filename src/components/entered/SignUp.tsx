@@ -2,6 +2,7 @@ import React from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useAppDispatch } from '@/hooks/redux';
 import FormregisterComponent from '@/components/entered/FormRegisterComponent';
+import Forms from '@/components/Form';
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -22,12 +23,13 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <>
       <FormregisterComponent
         title="REGISTER NEW USER"
         handleClick={handleRegister}
       />
-    </div>
+      <Forms />
+    </>
   );
 };
 

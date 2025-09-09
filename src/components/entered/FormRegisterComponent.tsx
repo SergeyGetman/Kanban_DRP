@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormEnteredForm } from '@/components/StyledComponent/FormEntered.style';
+import ButtonElement from '@/librariesComponent';
 
 const FormregisterComponent = ({ title, handleClick }) => {
   const [email, setEmail] = useState('');
@@ -21,7 +22,11 @@ const FormregisterComponent = ({ title, handleClick }) => {
           placeholder="enter your password"
           onChange={e => setPassword(e.target.value)}
         />
-
+        <ButtonElement
+          variant="outlined"
+          text="Sign-UP"
+          handleClick={() => alert('Wow')}
+        />
         <button type="button" onClick={() => handleClick(email, password)}>
           {title}
         </button>
