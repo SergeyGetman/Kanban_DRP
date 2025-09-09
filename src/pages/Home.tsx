@@ -12,8 +12,6 @@ const Home = () => {
 
   const localENV = import.meta.env.VITE_API_KEY_FIREBASE;
 
-  console.log('this is localHome', localENV);
-
   const decodeJwt = (token: string) => {
     try {
       const payload = token.split('.')[1];
@@ -35,7 +33,6 @@ const Home = () => {
       const decoded = decodeJwt(token);
 
       if (decoded) {
-        console.log('Данные пользователя:', decoded);
         const { name, email, picture, sub } = decoded;
 
         localStorage.setItem(
@@ -48,7 +45,7 @@ const Home = () => {
       }
 
       setError(null);
-      navigate('/avtorized');
+      navigate('/register-new-user');
     } else {
       setError('Отсутствует токен авторизации.');
     }

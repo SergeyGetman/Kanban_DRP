@@ -10,7 +10,6 @@ const Login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        console.log('this is userCred', userCredential);
         const user = userCredential.user;
         console.log('USER', user);
         // ...

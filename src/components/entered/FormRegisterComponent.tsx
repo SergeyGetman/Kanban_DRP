@@ -4,6 +4,8 @@ import { FormEnteredForm } from '@/components/StyledComponent/FormEntered.style'
 const FormregisterComponent = ({ title, handleClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  localStorage.setItem('ERW', email);
   return (
     <>
       <FormEnteredForm>
