@@ -1,10 +1,24 @@
 import { useState } from 'react';
-import { FormEnteredForm } from '@/components/StyledComponent/FormEntered.style';
+import {
+  FormEnteredForm,
+  FormEnteredFormButton,
+} from '@/components/StyledComponent/FormEntered.style';
 import ButtonElement from '@/librariesComponent';
+import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 const FormregisterComponent = ({ title, handleClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleClickNavigate = () => {
+    navigate('/auth-new-user');
+  };
+  const handleNavigateForSignUp = () => {
+    navigate('/register-new-user');
+  };
 
   localStorage.setItem('ERW', email);
   return (
@@ -22,14 +36,18 @@ const FormregisterComponent = ({ title, handleClick }) => {
           placeholder="enter your password"
           onChange={e => setPassword(e.target.value)}
         />
-        <ButtonElement
-          variant="outlined"
-          text="Sign-UP"
-          handleClick={() => alert('Wow')}
-        />
-        <button type="button" onClick={() => handleClick(email, password)}>
-          {title}
-        </button>
+        <FormEnteredFormButton>
+          <ButtonElement
+            variant="outlined"
+            text="Sign-UP"
+            handleClick={handleNavigateForSignUp}
+          />
+          <ButtonElement
+            variant="outlined"
+            text="Sign-In"
+            handleClick={handleClickNavigate}
+          />
+        </FormEnteredFormButton>
       </FormEnteredForm>
     </>
   );

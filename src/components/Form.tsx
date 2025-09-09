@@ -16,18 +16,13 @@ import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
 import Typography from '@mui/material/Typography';
 import LogoutButton from './LogOutGoogle';
 import FormregisterComponent from './entered/FormRegisterComponent';
+import { setUser } from '@/store/userSlice';
 
 interface IFormData {
   title: string;
   description: string;
   priority: number | string;
   deadline: string;
-}
-interface User {
-  name: string;
-  email: string;
-  picture: string;
-  id: string;
 }
 
 interface IForm {
@@ -84,49 +79,10 @@ export const Forms: FC<IForm> = () => {
     }
   };
 
-  const [user, setUser] = useState<User | null>(null);
+  const [registerUser, setRegisterUser] = useState(false);
 
-  const [registerUser, setRegisterUser] = useState(true);
-
-  console.log('this is user', user);
-
-  useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    } else {
-      window.location.href = '/';
-    }
-  }, []);
-
-  if (!user) {
-    return <div>Загрузка...</div>;
-  }
-
-  const GetUserInfoRequest = () => {
-    return <Box>page is loaded</Box>;
-  };
-
-  return registerUser ? (
+  return (
     <FormStyle>
-      <CardInfoUserStyle>
-        <Typography sx={{ color: 'white' }}>
-          Welcome, {user.name}! 👋
-        </Typography>
-        <img
-          src={user.picture}
-          alt="avatar"
-          style={{
-            width: '100px',
-            height: '100px',
-            borderRadius: '50%',
-            margin: '0 auto',
-          }}
-        />
-        <p style={{ color: 'white', marginTop: '10px' }}>
-          <strong>Email:</strong> {user.email}
-        </p>
-      </CardInfoUserStyle>
       <form noValidate onSubmit={handleSubmit(handleFormSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={6}>
@@ -208,8 +164,6 @@ export const Forms: FC<IForm> = () => {
         </Box>
       </form>
     </FormStyle>
-  ) : (
-    <FormregisterComponent />
   );
 };
 
