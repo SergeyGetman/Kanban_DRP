@@ -28,7 +28,6 @@ const SignUp = () => {
         title="REGISTER NEW USER"
         handleClick={handleRegister}
       />
-      <Forms />
     </>
   );
 };

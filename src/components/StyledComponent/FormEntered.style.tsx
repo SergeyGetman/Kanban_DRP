@@ -1,6 +1,7 @@
 import { Box, styled, Typography } from '@mui/material';
 
 export const FormEnteredForm = styled(Typography)(() => ({
+  position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

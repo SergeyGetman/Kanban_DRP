@@ -18,8 +18,8 @@ export const HeaderAppStyle = styled(Typography)(
 
 export const CircularStyle = styled(Box)(() => ({
   color: '#b5a13c',
-  minHeight: '250px',
-  width: '50%',
+  minHeight: '180px',
+  width: '78%',
   margin: '14px 14px',
   marginTop: '1rem%',
   backgroundColor: 'rgba(0,0,0,0.1)',
@@ -43,15 +43,16 @@ const slideInFromLeft = keyframes`
 `;
 
 export const FormStyle = styled(Box)<FormStyleProps>(({ stateMove }) => ({
-  margin: '20px auto',
+  margin: '20% 25%',
   padding: '30px',
+  maxWidth: '500px',
   opacity: stateMove ? '0.2' : '0.9',
-  marginTop: '20px',
+
   color: '#786262',
   width: 'auto',
-  minHeight: '715px',
-  backgroundColor: '#203471',
-  borderRadius: '30px',
+  height: 'fit-content',
+  backgroundColor: 'rgba(149,165,226,0.1)',
+  boxShadow: '-2px -3px 18px 13px #d4eae378',
 
   '& form': {
     marginLeft: '50px',
@@ -59,7 +60,7 @@ export const FormStyle = styled(Box)<FormStyleProps>(({ stateMove }) => ({
 
   '& form input': {
     padding: '10px',
-    borderRadius: '4px',
+
     border: '1px solid #ccc',
     backgroundColor: '#ffffff',
     color: '#827a7a',

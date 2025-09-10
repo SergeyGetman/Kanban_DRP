@@ -154,13 +154,6 @@ export const Forms: FC<IForm> = () => {
             {CustomTextEnum.Submit}
           </Button>
           <Uploads />
-          <button
-            type="button"
-            onClick={checkForm}
-            style={{ textTransform: 'uppercase', color: '#b6bab0' }}
-          >
-            check valid
-          </button>
         </Box>
       </form>
     </FormStyle>
