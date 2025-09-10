@@ -27,7 +27,7 @@ export interface IDataTable {
 export interface AccountPagesState {
   status: number;
   count: CustomStepperEnum;
-  globalArrayAccount: IProduct[];
+  globalArrayAccount: [];
 }
 
 type IVariant = 'contained' | 'text' | 'outlined';
