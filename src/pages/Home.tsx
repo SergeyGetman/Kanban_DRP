@@ -3,6 +3,7 @@ import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import useAuth from '@/hooks/useAuth';
+import NavigateWrapper from '@/components/navigate';
 
 const Home = () => {
   const [error, setError] = useState<string | null>(null);
@@ -57,19 +58,22 @@ const Home = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '100px' }}>
-      <Typography>Войдите через Google</Typography>
-      <GoogleLogin
-        onSuccess={handleSuccess}
-        onError={handleError}
-        useOneTap={false}
-        text="signin_with"
-        size="large"
-        shape="rectangular"
-        theme="outline"
-      />
-      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
-    </div>
+    <>
+      <div style={{ textAlign: 'center', margin: '22% 22%' }}>
+        <Typography>Войдите через Google</Typography>
+        <GoogleLogin
+          onSuccess={handleSuccess}
+          onError={handleError}
+          useOneTap={false}
+          text="signin_with"
+          size="large"
+          shape="rectangular"
+          theme="outline"
+        />
+        {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+      </div>
+      <NavigateWrapper />
+    </>
   );
 };
 

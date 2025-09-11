@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import MediaCardInfoUser from './components/MediaCardInfo';
 import * as React from 'react';
-import FormregisterComponent from './components/entered/FormRegisterComponent';
 import Login from '@/components/entered/Login';
 import SignUp from '@/components/entered/SignUp';
 import Forms from '@/components/Form';
