@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import useAuth from '@/hooks/useAuth';
 import NavigateWrapper from '@/components/navigate';
 import { HomeBlockStyle } from '@/pages/HomeStyled.style';
+import CursorTrail from '@/components/CursorTrail';
 
 const Home = () => {
   const [error, setError] = useState<string | null>(null);
@@ -71,7 +72,9 @@ const Home = () => {
           shape="rectangular"
           theme="outline"
         />
-        {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+        {error && (
+          <Box style={{ color: 'red', marginTop: '10px' }}>{error}</Box>
+        )}
       </HomeBlockStyle>
     </>
   );
