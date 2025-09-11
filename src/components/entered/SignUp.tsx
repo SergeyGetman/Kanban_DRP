@@ -8,6 +8,7 @@ const SignUp = () => {
   const dispatch = useAppDispatch();
 
   const handleRegister = (email, password) => {
+    alert('SIGN_UP');
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
