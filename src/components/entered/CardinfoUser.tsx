@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CardInfoUserStyle } from '@/components/StyledComponent/CardInfoUser.style';
 import Typography from '@mui/material/Typography';
-import { setUser } from '@/store/userSlice';
+import { Box } from '@mui/material';
 
 interface User {
   name: string;
@@ -42,9 +42,9 @@ const CardInfoUserComponent = () => {
             margin: '0 auto',
           }}
         />
-        <p style={{ color: 'white', marginTop: '10px' }}>
+        <Box style={{ color: 'white', marginTop: '10px' }}>
           <strong>Email:</strong> {user.email}
-        </p>
+        </Box>
       </CardInfoUserStyle>
     </>
   );

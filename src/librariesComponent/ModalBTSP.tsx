@@ -26,7 +26,7 @@ const ModalBtsp: FC<IModalBTSP> = ({ text, ...props }) => {
             </Modal.Header>
 
             <Modal.Body>
-              <p>{text}</p>
+              <Box>{text}</Box>
             </Modal.Body>
             <ModalCustomStyleBTNS>
               <ButtonElement variant="contained" text={'close'} />

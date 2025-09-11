@@ -7,11 +7,12 @@ const Login = () => {
   const dispatch = useAppDispatch();
 
   const handleLogin = (email, password) => {
+    alert('qweqwe');
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
+        // Signed in
         const user = userCredential.user;
-        console.log('USER', user);
         // ...
       })
       .catch(error => {

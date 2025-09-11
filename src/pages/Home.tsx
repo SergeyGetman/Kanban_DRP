@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import useAuth from '@/hooks/useAuth';
+import NavigateWrapper from '@/components/navigate';
+import { HomeBlockStyle } from '@/pages/HomeStyled.style';
+import CursorTrail from '@/components/CursorTrail';
 
 const Home = () => {
   const [error, setError] = useState<string | null>(null);
@@ -57,19 +60,23 @@ const Home = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '100px' }}>
-      <Typography>Войдите через Google</Typography>
-      <GoogleLogin
-        onSuccess={handleSuccess}
-        onError={handleError}
-        useOneTap={false}
-        text="signin_with"
-        size="large"
-        shape="rectangular"
-        theme="outline"
-      />
-      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
-    </div>
+    <>
+      <HomeBlockStyle>
+        <Typography>Войдите через Google</Typography>
+        <GoogleLogin
+          onSuccess={handleSuccess}
+          onError={handleError}
+          useOneTap={false}
+          text="signin_with"
+          size="large"
+          shape="rectangular"
+          theme="outline"
+        />
+        {error && (
+          <Box style={{ color: 'red', marginTop: '10px' }}>{error}</Box>
+        )}
+      </HomeBlockStyle>
+    </>
   );
 };
 
