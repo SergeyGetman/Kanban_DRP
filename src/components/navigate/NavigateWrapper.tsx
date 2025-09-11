@@ -1,42 +1,58 @@
 import React from 'react';
-import { ButtonGroup } from '@mui/material';
-import Button from '@mui/material/Button';
-import ButtonElement from '@/librariesComponent';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, Button, Container, Box } from '@mui/material';
 
 const NavigateWrapper = () => {
   const navigate = useNavigate();
 
-  const handleClickNavigateAuth = () => {
-    navigate('/auth-new-user');
-  };
-  const handleNavigateForSignUp = () => {
-    navigate('/register-new-user');
-  };
-
-  const handleAttach = () => {
-    navigate('/attach-files');
-  };
   return (
     <>
-      <ButtonGroup variant="contained" aria-label="Basic button group">
-        <ButtonElement
-          text="auth-new-user"
-          variant="contained"
-          handleClick={handleClickNavigateAuth}
-        />
-        <ButtonElement
-          text="register-new-user"
-          variant="contained"
-          handleClick={handleNavigateForSignUp}
-        />
-        <ButtonElement
-          text="attach"
-          variant="contained"
-          handleClick={handleAttach}
-        />
-      </ButtonGroup>
+      {/* Шапка с навигацией */}
+      <AppBar
+        position="static"
+        color="primary"
+        sx={{ marginBottom: '20px', backgroundColor: '#2a343f' }}
+      >
+        <Toolbar
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '16px',
+            flexWrap: 'wrap',
+          }}
+        >
+          <Button
+            color="inherit"
+            variant="outlined"
+            onClick={() => navigate('/auth-new-user')}
+          >
+            Sign In
+          </Button>
+          <Button
+            color="inherit"
+            variant="outlined"
+            onClick={() => navigate('/register-new-user')}
+          >
+            Register
+          </Button>
+          <Button
+            color="inherit"
+            variant="outlined"
+            onClick={() => navigate('/attach-files')}
+          >
+            Attach Files
+          </Button>
+        </Toolbar>
+      </AppBar>
+
+      {/* Основной контент страницы */}
+      <Container maxWidth="lg">
+        <Box sx={{ padding: '20px' }}>
+          <Outlet />
+        </Box>
+      </Container>
     </>
   );
 };
+
 export default NavigateWrapper;

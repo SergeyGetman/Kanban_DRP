@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import useAuth from '@/hooks/useAuth';
 import NavigateWrapper from '@/components/navigate';
+import { HomeBlockStyle } from '@/pages/HomeStyled.style';
 
 const Home = () => {
   const [error, setError] = useState<string | null>(null);
@@ -59,7 +60,7 @@ const Home = () => {
 
   return (
     <>
-      <div style={{ textAlign: 'center', margin: '22% 22%' }}>
+      <HomeBlockStyle>
         <Typography>Войдите через Google</Typography>
         <GoogleLogin
           onSuccess={handleSuccess}
@@ -71,8 +72,7 @@ const Home = () => {
           theme="outline"
         />
         {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
-      </div>
-      <NavigateWrapper />
+      </HomeBlockStyle>
     </>
   );
 };
