@@ -7,6 +7,7 @@ import SignUp from '@/components/entered/SignUp';
 import Forms from '@/components/Form';
 import NavigateWrapper from '@/components/navigate';
 import CursorRipple from '@/components/CursorTrail';
+import TestedComponent from '@/components/TestedComponent';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="auth-new-user" element={<Login />} />
           <Route path="register-new-user" element={<SignUp />} />
           <Route path="attach-files" element={<Forms />} />
+          <Route path="tested" element={<TestedComponent />} />
         </Route>
       </Routes>
     </>
