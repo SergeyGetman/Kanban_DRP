@@ -58,7 +58,7 @@ export default function SkeletonComponent() {
               }}
             />
           </Box>
-          <Skeleton variant="secondary" width="auto" height={20} />
+          <Skeleton variant="text" width="auto" height={20} />
         </Stack>
       )}
     </>
