@@ -9,6 +9,7 @@ import NavigateWrapper from '@/components/navigate';
 import CursorRipple from '@/components/CursorTrail';
 import TestedComponent from '@/components/TestedComponent';
 import { useEffect, useState } from 'react';
+import QueryList from '@/components/queryClient/QueryList';
 
 function App() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function App() {
   const [switcherForAutorized, setSwitcherForAutorized] = useState(true);
 
   useEffect(() => {
-    navigate('/tested');
+    navigate('/query-list');
   }, []);
 
   return (
@@ -29,6 +30,7 @@ function App() {
             path="/tested"
             element={<TestedComponent text="user-list-query" />}
           />
+          <Route path="/query-list" element={<QueryList />} />
         </Routes>
       ) : (
         <Routes>
