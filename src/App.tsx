@@ -12,7 +12,7 @@ import TestedComponent from '@/components/TestedComponent';
 function App() {
   return (
     <>
-      <h1 style={{ backgroundColor: 'white', color: 'black' }}>H B</h1>
+      <h1 style={{ backgroundColor: 'white', color: 'black' }}>H BODDY</h1>
       <CursorRipple />
       <Routes>
         <Route element={<NavigateWrapper />}>
