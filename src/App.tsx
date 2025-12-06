@@ -12,6 +12,7 @@ import TestedComponent from '@/components/TestedComponent';
 function App() {
   return (
     <>
+      <h1 style={{ backgroundColor: 'white', color: 'black' }}>HELLO BODDY</h1>
       <CursorRipple />
       <Routes>
         <Route element={<NavigateWrapper />}>
@@ -20,7 +21,7 @@ function App() {
           <Route path="auth-new-user" element={<Login />} />
           <Route path="register-new-user" element={<SignUp />} />
           <Route path="attach-files" element={<Forms />} />
-          <Route path="tested" element={<TestedComponent />} />
+          <Route path="tested" element={<TestedComponent text="234234234" />} />
         </Route>
       </Routes>
     </>
