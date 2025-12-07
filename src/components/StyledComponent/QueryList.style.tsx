@@ -7,8 +7,6 @@ export const QueryListStyle = styled(Box)(() => ({
   height: '100%',
   backgroundColor: 'grey',
 
-  // ИСПРАВЛЕНИЕ: Убираем '&'. Теперь селектор ищет ПЕРВЫЙ дочерний элемент
-  // ВНУТРИ QueryListStyle.
   ':first-of-type': {
     marginBottom: '8px',
     backgroundColor: 'red',
