@@ -1,5 +1,3 @@
-// src/components/QueryListStyle.tsx (пример)
-
 import { Box, styled } from '@mui/material';
 import { boolean } from 'yup';
 
