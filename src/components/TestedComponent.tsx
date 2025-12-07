@@ -8,14 +8,9 @@ const TestedComponent: FC<ITestedComponent> = ({ text }) => {
   const [count, setCount] = useState('');
   const [value, setValue] = useState('');
 
-  useEffect(() => {
-    console.log('this is one 1');
-  }, []);
-  console.log('this is TWO 2');
+  useEffect(() => {}, []);
 
   const onChanges = event => {
-    alert('qweqwe');
-    console.log('EVEnt', event);
     setValue(event.target.value);
   };
 
