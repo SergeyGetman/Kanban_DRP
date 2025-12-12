@@ -1,26 +1,39 @@
-import { Box, styled } from '@mui/material';
+import { BorderAll } from '@mui/icons-material';
+import { backdropClasses, Box, styled } from '@mui/material';
 import { boolean } from 'yup';
 
-export const QueryListStyle = styled(Box)(() => ({
-  height: '100%',
-  backgroundColor: 'grey',
+export const QueryTableWrapper = styled(Box)(() => ({
+  width: '80%',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
 
-  ':first-of-type': {
-    marginBottom: '8px',
-    backgroundColor: 'red',
+  '& table': {
+    width: '100%',
+    borderCollapse: 'collapse',
+    backgroundColor: '#4e4e4eff',
+    border: '3px solid #003b32ff',
   },
-}));
 
-export const QueryListWrapper = styled(Box)(({ checked }: boolean) => ({
-  height: '100%',
-  backgroundColor: checked ? '#4f1fffff' : '#00ff2aff',
-  color: 'white',
-
-  span: {
-    marginBottom: '8px',
-    backgroundColor: 'red',
+  '& thead tr': {
+    backgroundColor: '#808080ff',
   },
-  div: {
-    backgroundColor: 'green',
+
+  '& td, & th': {
+    border: '2px solid #124120ff',
+  },
+
+  '& th': {
+    '@media (max-width: 600px)': {
+      '&:nth-of-type(1)': {
+        display: 'none',
+      },
+    },
+  },
+
+  '& td': {
+    '@media (max-width: 600px)': {
+      '&:nth-of-type(1)': {
+        display: 'none',
+      },
+    },
   },
 }));
