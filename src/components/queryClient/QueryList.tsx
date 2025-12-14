@@ -6,6 +6,15 @@ import Users from './Users';
 
 const QueryList = () => {
   const [status, setStatus] = useState(false);
+  const [hide, setHide] = useState(false);
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 600) {
+      setHide(true);
+    } else {
+      setHide(false);
+    }
+  });
+
   const checkedFn = useCallback(() => {
     setStatus(true);
   }, [status]);
@@ -16,7 +25,7 @@ const QueryList = () => {
     }, 3000);
   });
   return (
-    <QueryTableWrapper>
+    <QueryTableWrapper $hideFirstColumn={hide}>
       <Users />
     </QueryTableWrapper>
   );

@@ -1,8 +1,14 @@
+import { Box, styled } from '@mui/material';
 import { BorderAll } from '@mui/icons-material';
-import { backdropClasses, Box, styled } from '@mui/material';
 import { boolean } from 'yup';
 
-export const QueryTableWrapper = styled(Box)(() => ({
+interface QueryTableWrapperProps {
+  $hideFirstColumn?: boolean;
+}
+
+export const QueryTableWrapper = styled(Box, {
+  shouldForwardProp: prop => prop !== '$hideFirstColumn',
+})<QueryTableWrapperProps>(({ $hideFirstColumn }) => ({
   width: '80%',
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
 
@@ -21,19 +27,21 @@ export const QueryTableWrapper = styled(Box)(() => ({
     border: '2px solid #124120ff',
   },
 
-  '& th': {
-    '@media (max-width: 600px)': {
-      '&:nth-of-type(1)': {
-        display: 'none',
+  ...($hideFirstColumn && {
+    '& th': {
+      '@media (max-width: 600px)': {
+        '&:nth-of-type(1)': {
+          display: 'none',
+        },
       },
     },
-  },
 
-  '& td': {
-    '@media (max-width: 600px)': {
-      '&:nth-of-type(1)': {
-        display: 'none',
+    '& td': {
+      '@media (max-width: 600px)': {
+        '&:nth-of-type(1)': {
+          display: 'none',
+        },
       },
     },
-  },
+  }),
 }));
