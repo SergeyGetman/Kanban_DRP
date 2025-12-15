@@ -6,12 +6,12 @@ import Users from './Users';
 
 const QueryList = () => {
   const [status, setStatus] = useState(false);
-  const [hide, setHide] = useState(false);
+  const [mobileView, setMobileView] = useState(false);
   window.addEventListener('resize', () => {
     if (window.innerWidth < 600) {
-      setHide(true);
+      setMobileView(true);
     } else {
-      setHide(false);
+      setMobileView(false);
     }
   });
 
@@ -25,7 +25,7 @@ const QueryList = () => {
     }, 3000);
   });
   return (
-    <QueryTableWrapper $hideFirstColumn={hide}>
+    <QueryTableWrapper mobileView={mobileView}>
       <Users />
     </QueryTableWrapper>
   );

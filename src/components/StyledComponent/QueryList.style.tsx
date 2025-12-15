@@ -3,15 +3,18 @@ import { BorderAll } from '@mui/icons-material';
 import { boolean } from 'yup';
 
 interface QueryTableWrapperProps {
-  $hideFirstColumn?: boolean;
+  mobileView: boolean;
 }
 
 export const QueryTableWrapper = styled(Box, {
-  shouldForwardProp: prop => prop !== '$hideFirstColumn',
-})<QueryTableWrapperProps>(({ $hideFirstColumn }) => ({
+  shouldForwardProp: prop => prop !== 'mobileView',
+})<QueryTableWrapperProps>(({ mobileView }) => ({
   width: '80%',
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
 
+  ...(mobileView && {
+    width: '100%',
+  }),
   '& table': {
     width: '100%',
     borderCollapse: 'collapse',
@@ -26,22 +29,4 @@ export const QueryTableWrapper = styled(Box, {
   '& td, & th': {
     border: '2px solid #124120ff',
   },
-
-  ...($hideFirstColumn && {
-    '& th': {
-      '@media (max-width: 600px)': {
-        '&:nth-of-type(1)': {
-          display: 'none',
-        },
-      },
-    },
-
-    '& td': {
-      '@media (max-width: 600px)': {
-        '&:nth-of-type(1)': {
-          display: 'none',
-        },
-      },
-    },
-  }),
 }));
