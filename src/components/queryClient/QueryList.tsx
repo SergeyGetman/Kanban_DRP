@@ -7,7 +7,12 @@ import Users from './Users';
 const URL = 'https://jsonplaceholder.typicode.com/todos';
 const fetchUsers = () => fetch(URL).then(res => res.json);
 
-const arrTestConfig = [
+export type IArrTestConf = {
+  link: string;
+  url: string;
+};
+
+const arrTestConfig: IArrTestConf[] = [
   {
     link: 'ENUM_link',
     url: 'www.google.com',
@@ -22,7 +27,7 @@ const arrTestConfig = [
   },
 ];
 
-function MyComponent() {
+function QueryListComponent() {
   const { data, isLoading } = useQuery({
     queryKey: ['todos'],
     queryFn: fetchUsers,
@@ -36,16 +41,16 @@ function MyComponent() {
 export const GetQueryListEnumLinks = () => {
   return (
     <>
-      {arrTestConfig.map((el, idx) => {
-        <>
-          <ul>
-            <li key={idx}>
-              {el.link}
+      <div style={{ backgroundColor: 'grey', height: '100%' }}>
+        {arrTestConfig.map((el, idx) => (
+          <ul key={idx}>
+            <li>
+              {el.link}: 
               {el.url}
             </li>
           </ul>
-        </>;
-      })}
+        ))}
+      </div>
     </>
   );
 };
@@ -76,8 +81,7 @@ const QueryList = () => {
         <Users />
       </QueryTableWrapper>
       <QueryTableWrapper mobileView={mobileView}>
-        <h1>Hello Query list </h1>
-        {/* <MyComponent /> */}
+        <QueryListComponent />
         <GetQueryListEnumLinks />
       </QueryTableWrapper>
     </>
