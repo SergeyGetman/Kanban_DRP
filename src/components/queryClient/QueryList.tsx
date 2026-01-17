@@ -1,11 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  QueryListStyle,
-  QueryListWrapper,
-} from '@/components/StyledComponent/QueryList.style';
+import { QueryTableWrapper } from '@/components/StyledComponent/QueryList.style';
 import { useQuery } from '@tanstack/react-query';
-import Todos from './ToDos';
 
+import Users from './Users';
 const URL = 'https://jsonplaceholder.typicode.com/todos';
 const fetchUsers = () => fetch(URL).then(res => res.json);
 
@@ -55,6 +52,15 @@ export const GetQueryListEnumLinks = () => {
 
 const QueryList = () => {
   const [status, setStatus] = useState(false);
+  const [mobileView, setMobileView] = useState(false);
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 600) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  });
+
   const checkedFn = useCallback(() => {
     setStatus(true);
   }, [status]);
@@ -65,6 +71,9 @@ const QueryList = () => {
     }, 3000);
   });
   return (
+    <QueryTableWrapper mobileView={mobileView}>
+      <Users />
+    </QueryTableWrapper>
     <QueryListStyle>
       <h1>Hello Query list </h1>
       {/* <MyComponent /> */}
