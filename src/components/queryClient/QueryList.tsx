@@ -9,6 +9,21 @@ import Todos from './ToDos';
 const URL = 'https://jsonplaceholder.typicode.com/todos';
 const fetchUsers = () => fetch(URL).then(res => res.json);
 
+const arrTestConfig = [
+  {
+  link: "ENUM_link",
+  url: "www.google.com"
+},
+  {
+  link: "ENUM_link",
+  url: "www.facebook.com"
+},
+  {
+  link: "ENUM_link",
+  url: "www.apple.com"
+}
+]
+
 function MyComponent() {
   const { data, isLoading } = useQuery({
     queryKey: ['todos'],
@@ -18,6 +33,24 @@ function MyComponent() {
   console.log('data:', data, typeof data);
   if (isLoading) return <div>Загрузка...</div>;
   return <div>{JSON.stringify(data)}</div>;
+}
+
+
+export const GetQueryListEnumLinks = () => {
+  return (
+    <>
+      {arrTestConfig.map((el, idx) => {
+      <>
+          <ul>
+            <li key={idx}>
+              {el.link}
+              {el.url}
+            </li>
+          </ul>
+      </>
+      })}
+    </>
+  )
 }
 
 const QueryList = () => {
@@ -38,6 +71,8 @@ const QueryList = () => {
       <QueryListWrapper checked={status}>
         <Todos />
       </QueryListWrapper>
+
+        <GetQueryListEnumLinks />
     </QueryListStyle>
   );
 };
