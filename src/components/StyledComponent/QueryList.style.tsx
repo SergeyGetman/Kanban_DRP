@@ -1,26 +1,32 @@
 import { Box, styled } from '@mui/material';
+import { BorderAll } from '@mui/icons-material';
 import { boolean } from 'yup';
 
-export const QueryListStyle = styled(Box)(() => ({
-  height: '100%',
-  backgroundColor: 'grey',
+interface QueryTableWrapperProps {
+  mobileView: boolean;
+}
 
-  ':first-of-type': {
-    marginBottom: '8px',
-    backgroundColor: 'red',
+export const QueryTableWrapper = styled(Box, {
+  shouldForwardProp: prop => prop !== 'mobileView',
+})<QueryTableWrapperProps>(({ mobileView }) => ({
+  width: '80%',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+
+  ...(mobileView && {
+    width: '100%',
+  }),
+  '& table': {
+    width: '100%',
+    borderCollapse: 'collapse',
+    backgroundColor: '#4e4e4eff',
+    border: '3px solid #003b32ff',
   },
-}));
 
-export const QueryListWrapper = styled(Box)(({ checked }: boolean) => ({
-  height: '100%',
-  backgroundColor: checked ? '#4f1fffff' : '#00ff2aff',
-  color: 'white',
-
-  span: {
-    marginBottom: '8px',
-    backgroundColor: 'red',
+  '& thead tr': {
+    backgroundColor: '#808080ff',
   },
-  div: {
-    backgroundColor: 'green',
+
+  '& td, & th': {
+    border: '2px solid #124120ff',
   },
 }));
