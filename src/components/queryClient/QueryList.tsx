@@ -9,19 +9,19 @@ import Todos from './ToDos';
 const URL = 'https://jsonplaceholder.typicode.com/todos';
 const fetchUsers = () => fetch(URL).then(res => res.json);
 
-function MyComponent() {
+const MyComponent: React.FC = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['todos'],
     queryFn: fetchUsers,
   });
 
-  console.log('data:', data, typeof data);
   if (isLoading) return <div>Загрузка...</div>;
   return <div>{JSON.stringify(data)}</div>;
-}
+};
 
-const QueryList = () => {
-  const [status, setStatus] = useState(false);
+const QueryList: React.FC = () => {
+  const [status, setStatus] = useState<boolean>(false);
+
   const checkedFn = useCallback(() => {
     setStatus(true);
   }, [status]);
@@ -31,6 +31,7 @@ const QueryList = () => {
       checkedFn();
     }, 3000);
   });
+
   return (
     <QueryListStyle>
       <h1>Hello Query list </h1>

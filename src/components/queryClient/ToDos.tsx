@@ -1,7 +1,15 @@
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-function Todos() {
-  const { data, isPending, error } = useQuery({
+type Todo = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
+const Todos: React.FC = () => {
+  const { data, isPending, error } = useQuery<Todo[]>({
     queryKey: ['todos'],
     queryFn: () =>
       fetch('https://jsonplaceholder.typicode.com/todos').then(r => r.json()),
@@ -13,14 +21,16 @@ function Todos() {
   return (
     <>
       <ul>
-        {data.map((t: any) => (
-          <li key={t.id}>{t.id}: {t.title}</li>
+        {data?.map((t: Todo) => (
+          <li key={t.id}>
+            {t.id}: {t.title}
+          </li>
         ))}
       </ul>
       <span>This is span yo</span>
       <div>This is DIV!</div>
     </>
   );
-}
+};
 
 export default Todos;
