@@ -14,7 +14,7 @@ function Todos() {
     <>
       <ul>
         {data.map((t: any) => (
-          <li key={t.id}>{t.id} : {t.title}</li>
+          <li key={t.id}>{t.id}: {t.title}</li>
         ))}
       </ul>
       <span>This is span yo</span>
