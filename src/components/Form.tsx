@@ -12,11 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Uploads from './InputFileUpload';
 import SceletonComponent from '../librariesComponent/Scelet';
 import MockUserComponent from '../librariesComponent/MockUserComponent';
-import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
-import Typography from '@mui/material/Typography';
-import LogoutButton from './LogOutGoogle';
-import FormregisterComponent from './entered/FormRegisterComponent';
-import { setUser } from '@/store/userSlice';
+
 
 interface IFormData {
   title: string;
