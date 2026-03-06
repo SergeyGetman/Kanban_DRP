@@ -1,9 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ICheckedFormDataState } from '../types';
+
+export interface ICheckedFormDataState {
+  email: null;
+  token: null;
+  id: null;
+  statusView: boolean;
+  statusEnter: number;
+}
 
 const initialState: ICheckedFormDataState = {
-  statusEnter: 0,
+  email: null,
+  token: null,
+  id: null,
   statusView: false,
+  statusEnter: 0,
 };
 
 export const sliceCheckedFormData = createSlice({
@@ -21,4 +31,4 @@ export const sliceCheckedFormData = createSlice({
 });
 
 export default sliceCheckedFormData.reducer;
-export const { changeVisibly } = sliceCheckedFormData.actions;
+export const { changeVisibly, setStatusEnter } = sliceCheckedFormData.actions;

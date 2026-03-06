@@ -6,17 +6,13 @@ import { validationSchema } from '../validate_rools/validate';
 
 import { CustomTextEnum } from '../types/enam';
 
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { CircularStyle, FormStyle } from '../../Index.style';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Uploads from './InputFileUpload';
 import SceletonComponent from '../librariesComponent/Scelet';
 import MockUserComponent from '../librariesComponent/MockUserComponent';
-import { CardInfoUserStyle } from './StyledComponent/CardInfoUser.style';
-import Typography from '@mui/material/Typography';
-import LogoutButton from './LogOutGoogle';
-import FormregisterComponent from './entered/FormRegisterComponent';
-import { setUser } from '@/store/userSlice';
+
 
 interface IFormData {
   title: string;
