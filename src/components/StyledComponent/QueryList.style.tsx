@@ -1,6 +1,23 @@
 import { Box, styled } from '@mui/material';
-import { BorderAll } from '@mui/icons-material';
-import { boolean } from 'yup';
+
+export const QueryListStyle = styled(Box)(({ theme }) => ({
+  height: '100%',
+  backgroundColor: theme.palette.background.default,
+}));
+
+interface QueryListWrapperProps {
+  checked: boolean;
+}
+
+export const QueryListWrapper = styled(Box, {
+  shouldForwardProp: prop => prop !== 'checked',
+})<QueryListWrapperProps>(({ theme, checked }) => ({
+  height: '100%',
+  backgroundColor: checked
+    ? theme.palette.primary.light
+    : theme.palette.background.paper,
+  color: theme.palette.text.primary,
+}));
 
 interface QueryTableWrapperProps {
   mobileView: boolean;

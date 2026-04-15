@@ -10,10 +10,14 @@ import CursorRipple from '@/components/CursorTrail';
 import TestedComponent from '@/components/TestedComponent';
 import { useEffect, useState } from 'react';
 import QueryList from '@/components/queryClient/QueryList';
+import CssBaseline from '@mui/material/CssBaseline';
+import Button from '@mui/material/Button';
+import { useTheme } from '@/theme/ThemeContext.tsx';
 
 function App() {
   const navigate = useNavigate();
-
+  const { mode, toggleTheme } = useTheme();
+  console.log('mode', mode);
   const [switcherForAutorized, setSwitcherForAutorized] = useState(true);
 
   useEffect(() => {
@@ -22,7 +26,9 @@ function App() {
 
   return (
     <>
-      <h1 style={{ backgroundColor: 'white', color: 'black' }}>H BODDY</h1>
+      <CssBaseline />
+      {/*<h1 style={{ backgroundColor: 'white', color: 'black' }}>H BODDY</h1>          for what???*/}
+      <Button onClick={toggleTheme}> theme now: {mode} </Button>
       <CursorRipple />
       {switcherForAutorized ? (
         <Routes>

@@ -8,6 +8,7 @@ import { FileProvider } from './store/ContextSaved';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { MOCK_DATA } from './mock/data';
+import { ThemeProvider } from './theme/ThemeContext';
 import './firebase';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -30,11 +31,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <FileProvider>
-          <BrowserRouter basename="/Kanban_DRP">
-            <GoogleOAuthProvider clientId={API_KEY}>
-              <App />
-            </GoogleOAuthProvider>
-          </BrowserRouter>
+          <ThemeProvider>
+            <BrowserRouter basename="/Kanban_DRP">
+              <GoogleOAuthProvider clientId={API_KEY}>
+                <App />
+              </GoogleOAuthProvider>
+            </BrowserRouter>
+          </ThemeProvider>
         </FileProvider>
       </Provider>
 
