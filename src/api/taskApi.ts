@@ -1,5 +1,6 @@
+// tasksApi.ts
 import { apiClient } from './axiosClient';
-import { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 
 export interface Task {
   id: number;
@@ -9,8 +10,9 @@ export interface Task {
 
 export const tasksApi = {
   getAll: async (): Promise<Task[]> => {
-    const { data } = await apiClient.get<Task[]>('/tasks');
-    return data;
+    const response: AxiosResponse<Task[]> =
+      await apiClient.get<Task[]>('/tasks');
+    return response.data;
   },
 
   create: async (task: Omit<Task, 'id'>): Promise<Task> => {
