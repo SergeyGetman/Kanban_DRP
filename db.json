@@ -1,0 +1,6 @@
+{
+  "tasks": [
+    { "id": 1, "title": "Setup React 19", "status": "todo" },
+    { "id": 2, "title": "Refactor to Axios", "status": "in-progress" }
+  ]
+}
