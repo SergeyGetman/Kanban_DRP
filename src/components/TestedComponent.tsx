@@ -1,37 +1,48 @@
 import React, { FC, useEffect, useState } from 'react';
-import { tasksApi } from '@/api/taskApi';
+import { IApiTask, tasksApi } from '@/api/taskApi';
+import { Task } from '@/types';
 
 export interface ITestedComponent {
   text: string;
 }
 
-const TestedComponent: FC<ITestedComponent> = ({ text }) => {
-  const [count, setCount] = useState('');
-  const [value, setValue] = useState('');
+type TaskPreview = Pick<IApiTask, 'id' | 'title' | 'status'>;
 
+type TaskPreviewArray = Array<Pick<IApiTask, 'id' | 'title' | 'status'>>;
+
+const TestedComponent: FC<ITestedComponent> = ({ text }) => {
+  const [dataPick, setDataPick] = useState<TaskPreviewArray>([]);
+
+  const objPick = {} as TaskPreview;
   useEffect(() => {
     tasksApi
       .getAll()
       .then(tasks => {
-        console.log(' Данные успешно получены:', tasks);
+        const pickedTasks: TaskPreviewArray = tasks.map(task => ({
+          id: task.id,
+          title: task.title,
+          status: task.status,
+        }));
+
+        setDataPick(pickedTasks);
+        console.log('Данные успешно получены:', pickedTasks);
       })
       .catch(err => {
-        console.error(' Ошибка при получении данных:', err);
+        console.error('Ошибка при получении данных:', err);
       });
   }, []);
 
-  const onChanges = event => {
-    setValue(event.target.value);
-  };
-
-  const handleClick = () => {
-    setCount(count + 1);
-    setCount(count + 1);
-  };
-
   return (
     <>
-      <button onClick={handleClick}>Count: {count}</button>;
+      <button onClick={() => confirm('added your data')}>Count: {text}</button>
+
+      <ul>
+        {dataPick.map(task => (
+          <li key={task.id}>
+            {task.title} - {task.status}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

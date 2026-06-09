@@ -1,25 +1,26 @@
-// tasksApi.ts
 import { apiClient } from './axiosClient';
-import type { AxiosResponse } from 'axios';
+import { Task } from '@/types';
 
-export interface Task {
+type statusRequest = 'todo' | 'in-progress' | 'done';
+type statusPriority = 'low' | 'medium' | 'high';
+
+export interface IApiTask {
   id: number;
   title: string;
-  status: 'todo' | 'in-progress' | 'done';
+  status: statusRequest;
+  priority: statusPriority;
+  assignee: string;
 }
 
 export const tasksApi = {
-  getAll: async (): Promise<Task[]> => {
-    const response: AxiosResponse<Task[]> =
-      await apiClient.get<Task[]>('/tasks');
-    return response.data;
+  getAll: async (): Promise<IApiTask[]> => {
+    const response = await apiClient.get<IApiTask[]>('/tasks');
+    console.log('this is responce is backend', response);
+    return response?.data;
   },
 
-  create: async (task: Omit<Task, 'id'>): Promise<Task> => {
-    const response: AxiosResponse<Task> = await apiClient.post<Task>(
-      '/tasks',
-      task
-    );
-    return response.data;
+  create: async (task: Omit<IApiTask, 'id'>): Promise<Task> => {
+    const response = await apiClient.post<IApiTask>('/tasks', task);
+    return response?.data;
   },
 };
