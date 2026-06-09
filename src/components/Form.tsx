@@ -149,7 +149,7 @@ export const Forms: FC<IForm> = () => {
           <Button type="submit" variant="contained">
             {CustomTextEnum.Submit}
           </Button>
-          <Uploads />
+          <Uploads  />
         </Box>
       </form>
     </FormStyle>

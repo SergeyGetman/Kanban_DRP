@@ -20,14 +20,9 @@ function App() {
   console.log('mode', mode);
   const [switcherForAutorized, setSwitcherForAutorized] = useState(true);
 
-  useEffect(() => {
-    navigate('/query-list');
-  }, []);
-
   return (
     <>
       <CssBaseline />
-      {/*<h1 style={{ backgroundColor: 'white', color: 'black' }}>H BODDY</h1>          for what???*/}
       <Button onClick={toggleTheme}> theme now: {mode} </Button>
       <CursorRipple />
       {switcherForAutorized ? (
