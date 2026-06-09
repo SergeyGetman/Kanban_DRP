@@ -1,6 +1,24 @@
 {
   "tasks": [
-    { "id": 1, "title": "Setup React 19", "status": "todo" },
-    { "id": 2, "title": "Refactor to Axios", "status": "in-progress" }
+    { "id": 1, "title": "Setup React 19 project", "status": "done", "priority": "high", "assignee": "Alex" },
+    { "id": 2, "title": "Refactor to Axios", "status": "in-progress", "priority": "high", "assignee": "Maria" },
+    { "id": 3, "title": "Design login page UI", "status": "done", "priority": "medium", "assignee": "Kate" },
+    { "id": 4, "title": "Implement user authentication", "status": "in-progress", "priority": "high", "assignee": "Alex" },
+    { "id": 5, "title": "Write unit tests for API", "status": "todo", "priority": "medium", "assignee": "Ivan" },
+    { "id": 6, "title": "Optimize database queries", "status": "todo", "priority": "high", "assignee": "Sergey" },
+    { "id": 7, "title": "Create API documentation", "status": "in-progress", "priority": "low", "assignee": "Maria" },
+    { "id": 8, "title": "Setup CI/CD pipeline", "status": "done", "priority": "high", "assignee": "Ivan" },
+    { "id": 9, "title": "Fix mobile responsiveness", "status": "todo", "priority": "medium", "assignee": "Kate" },
+    { "id": 10, "title": "Add dark mode support", "status": "todo", "priority": "low", "assignee": "Alex" },
+    { "id": 11, "title": "Integrate payment gateway", "status": "in-progress", "priority": "high", "assignee": "Sergey" },
+    { "id": 12, "title": "Review pull requests", "status": "done", "priority": "medium", "assignee": "Maria" },
+    { "id": 13, "title": "Update dependencies", "status": "todo", "priority": "low", "assignee": "Ivan" },
+    { "id": 14, "title": "Implement search functionality", "status": "in-progress", "priority": "medium", "assignee": "Alex" },
+    { "id": 15, "title": "Setup error tracking", "status": "done", "priority": "medium", "assignee": "Sergey" },
+    { "id": 16, "title": "Create admin dashboard", "status": "todo", "priority": "high", "assignee": "Kate" },
+    { "id": 17, "title": "Write e2e tests", "status": "todo", "priority": "medium", "assignee": "Ivan" },
+    { "id": 18, "title": "Migrate to TypeScript", "status": "in-progress", "priority": "high", "assignee": "Maria" },
+    { "id": 19, "title": "Add email notifications", "status": "todo", "priority": "low", "assignee": "Sergey" },
+    { "id": 20, "title": "Performance optimization", "status": "todo", "priority": "high", "assignee": "Alex" }
   ]
 }
