@@ -35,3 +35,27 @@ export const FormEnteredFormButton = styled(Box)(() => ({
     cursor: 'pointer',
   },
 }));
+
+export const FormEBox = styled(Typography)(() => ({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gridGap: '30px',
+  margin: '12% auto',
+
+  '& input': {
+
+    padding: '5px',
+    fontSize: '15px',
+    fontWeight: '700',
+    fontFamily: 'cursive',
+    borderRadius: '20px',
+    color: 'grey',
+    boxShadow: '-2px 0px 20px 4px #ce47d2a8',
+  },
+  '& input:hover': {
+    backgroundColor: 'rgb(66 66 85 / 37%)',
+    cursor: 'pointer',
+  },
+}));
