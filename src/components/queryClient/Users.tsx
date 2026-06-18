@@ -5,7 +5,7 @@ const fetchUsers = () => fetch(URL).then(res => res.json());
 
 function Users() {
   const { data, isLoading } = useQuery({
-    queryKey: ['users'], // уникальный ключ для этого запроса
+    queryKey: ['users'],
     queryFn: fetchUsers,
   });
 
