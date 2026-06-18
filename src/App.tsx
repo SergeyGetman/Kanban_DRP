@@ -25,7 +25,7 @@ function App() {
       <CssBaseline />
       <Button onClick={toggleTheme}> theme now: {mode} </Button>
       <CursorRipple />
-      {switcherForAutorized ? (
+      {!switcherForAutorized ? (
         <Routes>
           <Route
             path="/tested"
