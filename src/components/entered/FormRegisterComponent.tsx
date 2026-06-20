@@ -1,4 +1,4 @@
-import React, {useActionState, useState} from 'react';
+import React, {Suspense, use, useActionState, useEffect, useState} from 'react';
 import {
   FormEBox,
   FormEnteredForm,
@@ -12,28 +12,73 @@ import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import { Box } from '@mui/material';
 import firebase from "firebase/compat";
 import auth = firebase.auth;
+import {IApiTask, tasksApi} from "@/api/taskApi";
 
 function SubmitBtn() {
-  const { pending } = useFormStatus();
+  const { pending, action, data, method } = useFormStatus();
+  console.log("this is pending", pending)
+  console.log("this is action", action)
+  console.log("this is data", data)
+  console.log("this is method", method)
   return (
     <button type="submit" disabled={pending}>
       {pending ? 'Отправка...' : 'Войти'}
     </button>
   );
 }
+const taskPromise = tasksApi.getAll();
+
+const GeterDataApiUse = () => {
+
+  const task = use(taskPromise);
+
+  console.log("*****", task)
+
+  return <div>{task.length} задач</div>;
+
+}
+
+
+
+export const DataFromApi = () => {
+  const [data, setData] = useState<IApiTask[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await tasksApi.getAll();
+        console.log("RES", result);
+        setData(result);
+      } catch (error) {
+        console.error("Ошибка:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+}
 
 const FormregisterComponent = ({ title, handleClick }) => {
   const loginAction = async (previousState: any, formData: FormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    console.log('=== loginAction вызван ===');
+    console.log('previousState:', previousState);
+
     const emailSendForm = formData.get('email');
     const passwordSecondForm = formData.get('password');
-    console.log('emailSendForm', emailSendForm);
-    console.log('passwordSecondForm', passwordSecondForm);
+
+    console.log('emailSendForm:', emailSendForm);
+    console.log('passwordSecondForm:', passwordSecondForm);
+
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     return { success: true, message: "Данные успешно получены!" };
   };
 
   const [state, formAction] = useActionState(loginAction, {
-    susses: false,
+    success: false,
     message: ""
   })
 
@@ -71,17 +116,22 @@ const FormregisterComponent = ({ title, handleClick }) => {
           />
         </FormEnteredFormButton>
       </FormEnteredForm>
+
       <FormEBox >
-
-
-      <form action={loginAction}>
-        <input name="email" type="email"  />
-
-        <input name="password" type="password" />
+      <form action={formAction}>
+        <input name="email" type="email"  required />
+d
+        <input name="password" type="password" minlength={5} />
         <SubmitBtn />
-        {state.susses && <p style={{backgroundColor: 'white', color: 'black'}}>{state.message}</p>}
+        {state.success &&( <p style={{backgroundColor: 'white', color: 'black'}}>{state.message}</p>)}
       </form>
       </FormEBox>
+      <h2>Задачи </h2>
+      <DataFromApi />
+
+      <Suspense fallback={<div>Життя таке бентежне</div>}>
+        <GeterDataApiUse />
+      </Suspense>
     </>
   );
 };
