@@ -36,16 +36,15 @@ export const FormEnteredFormButton = styled(Box)(() => ({
   },
 }));
 
-export const FormEBox = styled(Typography)(() => ({
+export const FormEBox = styled('div')(() => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  gridGap: '30px',
+  gap: '30px', // gridGap устарел, лучше использовать просто gap
   margin: '12% auto',
 
   '& input': {
-
     padding: '5px',
     fontSize: '15px',
     fontWeight: '700',
