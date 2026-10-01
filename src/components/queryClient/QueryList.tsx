@@ -35,7 +35,7 @@ const QueryList: React.FC = () => {
   return (
     <QueryListStyle>
       <h1>Hello Query list </h1>
-      {/* <MyComponent /> */}
+       {/*<MyComponent />*/}
       <QueryListWrapper checked={status}>
         <Todos />
       </QueryListWrapper>
