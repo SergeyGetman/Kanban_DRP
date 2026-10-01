@@ -24,7 +24,7 @@ import { Box } from '@mui/material';
 // ✅ 1. Промис объявлен ОДИН раз снаружи компонента
 const taskPromise = tasksApi.getAll();
 
-// ✅ 2. Компонент кнопки (чистый и правильный)
+
 function SubmitBtn() {
   const { pending } = useFormStatus();
   return (
@@ -34,13 +34,13 @@ function SubmitBtn() {
   );
 }
 
-// ✅ 3. Компонент с use() и Suspense
+
 const GeterDataApiUse = () => {
   const task = use(taskPromise);
   return <div>{task.length} задач (через use + Suspense)</div>;
 };
 
-// ✅ 4. Компонент с классическим useEffect
+
 const DataFromApi = () => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
