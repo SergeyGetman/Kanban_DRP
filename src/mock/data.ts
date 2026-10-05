@@ -149,3 +149,15 @@ export const MOCK_DATA = {
   dataUserList: dataInformation,
   DATA_KEY_VAL: DATA_KEY,
 };
+
+
+export const MOCKDATA_CRASH_SERVER = [
+  {
+    id: 2,
+    title: 'CRASH',
+    status: 'todo' as const,
+    priority: 'high' as const,
+    assignee: 'Asside',
+  },
+];
+

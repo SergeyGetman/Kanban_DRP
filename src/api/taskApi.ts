@@ -1,5 +1,5 @@
+import { MOCKDATA_CRASH_SERVER } from '@/mock/data';
 import { apiClient } from './axiosClient';
-import { Task } from '@/types';
 
 type statusRequest = 'todo' | 'in-progress' | 'done';
 type statusPriority = 'low' | 'medium' | 'high';
@@ -14,13 +14,23 @@ export interface IApiTask {
 
 export const tasksApi = {
   getAll: async (): Promise<IApiTask[]> => {
-    const response = await apiClient.get<IApiTask[]>('/tasks');
-    console.log('this is responce is backend', response);
-    return response?.data;
+    try {
+      const response = await apiClient.get<IApiTask[]>('/tasks');
+      console.log('this is responce is backend', response);
+      return response.data;
+    } catch (error) {
+      console.warn('Server unavailable, using mock data', error);
+      return MOCKDATA_CRASH_SERVER as IApiTask[];
+    }
   },
 
-  create: async (task: Omit<IApiTask, 'id'>): Promise<Task> => {
-    const response = await apiClient.post<IApiTask>('/tasks', task);
-    return response?.data;
+  create: async (task: Omit<IApiTask, 'id'>): Promise<IApiTask> => {
+    try {
+      const response = await apiClient.post<IApiTask>('/tasks', task);
+      return response.data;
+    } catch (error) {
+      console.error('Error', error);
+      throw error;
+    }
   },
 };
