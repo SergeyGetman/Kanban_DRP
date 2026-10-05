@@ -1,8 +1,5 @@
 import React, { useState, useEffect, use, Suspense } from 'react';
-// useFormStatus импортируется из react-dom, а не через (React as any)
 import { useFormStatus } from 'react-dom';
-// В React 18 это useFormState, в React 19 переименовали в useActionState.
-// Используй то, что поддерживает твоя версия React (здесь useActionState для новизны)
 import ButtonElement from '@/librariesComponent';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
@@ -16,14 +13,7 @@ import { SearchInputComponent } from '@/components/SearchInput';
 import { tasksApi } from '@/api/taskApi';
 import { Box } from '@mui/material';
 
-// Импортируй свои компоненты и API здесь:
-// import { tasksApi } from './api';
-// import { FormEnteredForm, FormEBox, ... } from './components';
-// import { SearchInputComponent } from './SearchInputComponent';
-
-// ✅ 1. Промис объявлен ОДИН раз снаружи компонента
 const taskPromise = tasksApi.getAll();
-
 
 function SubmitBtn() {
   const { pending } = useFormStatus();
@@ -34,12 +24,13 @@ function SubmitBtn() {
   );
 }
 
-
 const GeterDataApiUse = () => {
   const task = use(taskPromise);
+
+  console.log('this is TASK', task);
+
   return <div>{task.length} задач (через use + Suspense)</div>;
 };
-
 
 const DataFromApi = () => {
   const [data, setData] = useState<any[]>([]);
@@ -68,7 +59,6 @@ const DataFromApi = () => {
   );
 };
 
-// ✅ 5. Основной компонент
 const FormregisterComponent = ({
   title,
   handleClick,
@@ -79,7 +69,6 @@ const FormregisterComponent = ({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // localStorage безопасно вызывается только внутри useEffect
   useEffect(() => {
     if (email) {
       localStorage.setItem('ERW', email);
@@ -164,7 +153,6 @@ const FormregisterComponent = ({
       <Suspense fallback={<div>Життя таке бентежне...</div>}>
         <GeterDataApiUse />
       </Suspense>
-
     </>
   );
 };

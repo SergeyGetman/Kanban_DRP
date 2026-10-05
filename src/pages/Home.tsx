@@ -6,7 +6,7 @@ import useAuth from '@/hooks/useAuth';
 import NavigateWrapper from '@/components/navigate';
 import { HomeBlockStyle } from '@/pages/HomeStyled.style';
 import CursorTrail from '@/components/CursorTrail';
-import TestedComponent from "@/components/TestedComponent";
+import TestedComponent from '@/components/TestedComponent';
 
 const Home = () => {
   const [error, setError] = useState<string | null>(null);
@@ -77,7 +77,7 @@ const Home = () => {
           <Box style={{ color: 'red', marginTop: '10px' }}>{error}</Box>
         )}
       </HomeBlockStyle>
-      <TestedComponent/>
+      <TestedComponent text={'qqwewwqe'} />
     </>
   );
 };
