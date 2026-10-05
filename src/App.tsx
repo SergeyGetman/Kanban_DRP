@@ -40,6 +40,7 @@ function App() {
             <Route path="avtorized" element={<MediaCardInfoUser />} />
             <Route path="auth-new-user" element={<Login />} />
             <Route path="register-new-user" element={<SignUp />} />
+            <Route path="query-list" element={<QueryList />} />
             <Route path="attach-files" element={<Forms typeOfForm={true} />} />
             <Route
               path="tested"

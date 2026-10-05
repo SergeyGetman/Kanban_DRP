@@ -21,14 +21,13 @@ const Todos: React.FC = () => {
   return (
     <>
       <ul>
-        {data?.map((t: Todo) => (
-          <li key={t.id}>
-            {t.id}: {t.title}
-          </li>
-        ))}
+        {Array.isArray(data) &&
+          data.map((t: Todo) => (
+            <li key={t.id}>
+              {t.id}: {t.title}
+            </li>
+          ))}
       </ul>
-      <span>This is span yo</span>
-      <div>This is DIV!</div>
     </>
   );
 };

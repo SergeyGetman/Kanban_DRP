@@ -5,7 +5,6 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import { useActionState } from 'react';
 import {
-  FormEBox,
   FormEnteredForm,
   FormEnteredFormButton,
 } from '@/components/StyledComponent/FormEntered.style';
@@ -14,15 +13,6 @@ import { tasksApi } from '@/api/taskApi';
 import { Box } from '@mui/material';
 
 const taskPromise = tasksApi.getAll();
-
-function SubmitBtn() {
-  const { pending } = useFormStatus();
-  return (
-    <button type="submit" disabled={pending}>
-      {pending ? 'Отправка...' : 'Войти'}
-    </button>
-  );
-}
 
 const GeterDataApiUse = () => {
   const task = use(taskPromise);
@@ -126,30 +116,8 @@ const FormregisterComponent = ({
         </FormEnteredFormButton>
       </FormEnteredForm>
 
-      <FormEBox>
-        <form action={formAction}>
-          <input name="email" type="email" required />
-          <input name="password" type="password" minLength={5} required />
-          <SubmitBtn />
-
-          {state.success && (
-            <div
-              style={{
-                backgroundColor: 'white',
-                color: 'black',
-                marginTop: '10px',
-              }}
-            >
-              {state.message}
-            </div>
-          )}
-        </form>
-      </FormEBox>
-
-      <h2>Задачи (useEffect)</h2>
       <DataFromApi />
 
-      <h2>Задачи (Suspense + use)</h2>
       <Suspense fallback={<div>Життя таке бентежне...</div>}>
         <GeterDataApiUse />
       </Suspense>

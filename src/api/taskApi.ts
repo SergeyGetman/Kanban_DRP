@@ -1,6 +1,5 @@
 import { MOCKDATA_CRASH_SERVER } from '@/mock/data';
 import { apiClient } from './axiosClient';
-import { Task } from '@/types';
 
 type statusRequest = 'todo' | 'in-progress' | 'done';
 type statusPriority = 'low' | 'medium' | 'high';
@@ -25,8 +24,13 @@ export const tasksApi = {
     }
   },
 
-  create: async (task: Omit<IApiTask, 'id'>): Promise<Task> => {
-    const response = await apiClient.post<IApiTask>('/tasks', task);
-    return response?.data;
+  create: async (task: Omit<IApiTask, 'id'>): Promise<IApiTask> => {
+    try {
+      const response = await apiClient.post<IApiTask>('/tasks', task);
+      return response.data;
+    } catch (error) {
+      console.error('Error', error);
+      throw error;
+    }
   },
 };

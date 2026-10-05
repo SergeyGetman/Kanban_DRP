@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import Todos from './ToDos';
 
 const URL = 'https://jsonplaceholder.typicode.com/todos';
-const fetchUsers = () => fetch(URL).then(res => res.json);
+const fetchUsers = () => fetch(URL).then(res => res.json());
 
 const MyComponent: React.FC = () => {
   const { data, isLoading } = useQuery({
@@ -16,7 +16,17 @@ const MyComponent: React.FC = () => {
   });
 
   if (isLoading) return <div>Загрузка...</div>;
-  return <div>{JSON.stringify(data)}</div>;
+
+  return (
+    <ul>
+      {Array.isArray(data) &&
+        data.map((todo: { id: number; title: string }) => (
+          <li key={todo.id}>
+            {todo.id}: {todo.title}
+          </li>
+        ))}
+    </ul>
+  );
 };
 
 const QueryList: React.FC = () => {
@@ -35,7 +45,7 @@ const QueryList: React.FC = () => {
   return (
     <QueryListStyle>
       <h1>Hello Query list </h1>
-       {/*<MyComponent />*/}
+      <MyComponent />
       <QueryListWrapper checked={status}>
         <Todos />
       </QueryListWrapper>
