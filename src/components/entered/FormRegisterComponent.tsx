@@ -17,8 +17,6 @@ const taskPromise = tasksApi.getAll();
 const GeterDataApiUse = () => {
   const task = use(taskPromise);
 
-  console.log('this is TASK', task);
-
   return <div>{task.length} задач (через use + Suspense)</div>;
 };
 
