@@ -1,10 +1,12 @@
 import React from 'react';
 import { Todo, usePosts } from '@/hooks/usePosts';
 import { usePostById } from '@/hooks/usePostById';
+import { useQueryClient } from '@tanstack/react-query';
 
 const isAuth = true;
 
 const Todos: React.FC = () => {
+  const queryClient = useQueryClient();
   const { data, isPending, error } = usePosts(isAuth);
   const { post, isLoading } = usePostById(1);
 
@@ -13,6 +15,13 @@ const Todos: React.FC = () => {
 
   return (
     <>
+      <button
+        onClick={() =>
+          queryClient.invalidateQueries({ queryKey: ['post'] })
+        }
+      >
+        Revalidate POST
+      </button>
       <ul>
         {Array.isArray(data) &&
           data.map((t: Todo) => (

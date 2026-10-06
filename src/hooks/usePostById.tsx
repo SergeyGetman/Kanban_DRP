@@ -8,7 +8,6 @@ export type ITodoId = {
   body: string;
 };
 
-// /posts/:id возвращает один объект, не массив
 const getDataUserPost = async (id: number): Promise<ITodoId> => {
   const response = await axios.get<ITodoId>(
     `https://jsonplaceholder.typicode.com/posts/${id}`

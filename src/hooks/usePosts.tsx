@@ -10,6 +10,15 @@ export type Todo = {
   body: string;
 };
 
+const initialData: Todo[] = [
+  {
+    id: 222,
+    body: 'Initial Body',
+    title: 'TIile initial data',
+    userId: 333,
+  },
+];
+
 export const usePosts = (isEnabled: boolean) => {
   const getData = async (): Promise<Todo[]> => {
     const response = await axios.get<Todo[]>(
@@ -22,6 +31,7 @@ export const usePosts = (isEnabled: boolean) => {
     queryFn: getData,
     select: data => data.slice(0, 20),
     enabled: isEnabled,
+    initialData,
   });
 
   useEffect(() => {
