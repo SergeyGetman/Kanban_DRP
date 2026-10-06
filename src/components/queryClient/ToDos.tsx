@@ -1,13 +1,20 @@
 import React from 'react';
 import { Todo, usePosts } from '@/hooks/usePosts';
 import { usePostById } from '@/hooks/usePostById';
-import { useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 
 const isAuth = true;
 
 const Todos: React.FC = () => {
+  const { mutate, isPending } = useMutation({
+    mutationKey: ['add post'],
+    mutationFn: async (newPost: Omit<Todo, 'id'>) =>
+      axios.post('https://jsonplaceholder.typicode.com/posts', newPost),
+  });
+
   const queryClient = useQueryClient();
-  const { data, isPending, error } = usePosts(isAuth);
+  const { data, error } = usePosts(isAuth);
   const { post, isLoading } = usePostById(1);
 
   if (isPending) return <span>Loading...</span>;
@@ -16,9 +23,7 @@ const Todos: React.FC = () => {
   return (
     <>
       <button
-        onClick={() =>
-          queryClient.invalidateQueries({ queryKey: ['post'] })
-        }
+        onClick={() => queryClient.invalidateQueries({ queryKey: ['post'] })}
       >
         Revalidate POST
       </button>
@@ -31,6 +36,18 @@ const Todos: React.FC = () => {
           ))}
       </ul>
       <div>{isLoading ? 'Loading...' : (post?.title ?? 'No post')}</div>
+      <button
+        disabled={isPending}
+        onClick={() => {
+          mutate({
+            body: 'Новое тело',
+            title: 'Новое тelo',
+            userId: 1,
+          });
+        }}
+      >
+        Mutate
+      </button>
     </>
   );
 };
