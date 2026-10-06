@@ -1,22 +1,15 @@
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { Todo, usePosts } from '@/hooks/usePosts';
+import { usePostById } from '@/hooks/usePostById';
 
-type Todo = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-};
+const isAuth = true;
 
 const Todos: React.FC = () => {
-  const { data, isPending, error } = useQuery<Todo[]>({
-    queryKey: ['todos'],
-    queryFn: () =>
-      fetch('https://jsonplaceholder.typicode.com/todos').then(r => r.json()),
-  });
+  const { data, isPending, error } = usePosts(isAuth);
+  const { post, isLoading } = usePostById(1);
 
   if (isPending) return <span>Loading...</span>;
-  if (error) return <span>Oops!</span>;
+  if (error) return React.createElement('span', null, 'Oops!');
 
   return (
     <>
@@ -28,6 +21,7 @@ const Todos: React.FC = () => {
             </li>
           ))}
       </ul>
+      <div>{isLoading ? 'Loading...' : (post?.title ?? 'No post')}</div>
     </>
   );
 };

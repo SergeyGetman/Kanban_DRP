@@ -51,7 +51,7 @@ const QueryList: React.FC = () => {
 
   const checkedFn = useCallback(() => {
     setStatus(true);
-  }, [status]);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {

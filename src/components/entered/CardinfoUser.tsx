@@ -21,8 +21,6 @@ const CardInfoUserComponent = () => {
     }
   }, []);
 
-  console.log('this is user', user);
-
   if (!user) {
     return <div>Загрузка...</div>;
   }
